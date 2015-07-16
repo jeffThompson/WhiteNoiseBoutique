@@ -1,0 +1,87 @@
+
+ **********   *******         *******     *******
+/////**///   **/////**       /**////**   **/////**
+    /**     **     //**      /**    /** **     //**
+    /**    /**      /**      /**    /**/**      /**
+    /**    /**      /**      /**    /**/**      /** **
+    /**    //**     **       /**    ** //**     ** //
+    /**     //*******        /*******   //*******   **
+    //       ///////         ///////     ///////   //
+
+
+KICKSTARTER
+[ ] Do it?
+[ ] Rewards
+[ ] Video
+[ ] Stretch goals?
+[ ] Advertise everywhere
+
+
+TRAVEL ARRANGMENTS
+[ ]	Plane ticket
+[ ] Train ticker
+[ ] Airbnb
+
+
+PACKING
+[ ] Box for stuff, padding material
+[ ] Shipping quote
+[ ] Get delivery address
+[ ] What to ship, what to bring
+
+
+ORDER
+[ ] Hardware RNGs
+[ ] Faraday cage materials
+[ ] Record jackets, etc
+[ ] Power adapters
+
+
+DESIGN
+[ ] "Menu" of seeds and generators
+[ ] Final labels
+
+
+PRINT
+[ ] Checklist labels
+[ ] Serial # labels
+[ ] Insert for each record with info?
+
+
+SOFTWARE
+[ ] Build software RNGs
+[ ] Figure out system tying together
+[ ] Max patch for generating noise from file
+[ ] Automate getting digits from online services?
+
+
+LATHE
+[ ] Clean lathe
+[ ] Build cutter head
+[ ] Test
+[ ] Install inverse-RIAA filter, amp?
+[ ] How to pack – Pelican case?
+
+
+ONCE PLACE IS SECURED
+[ ] Full rendering
+[ ] Furniture layout, BOM
+[ ] Design/cut vinyl lettering
+
+
+GENERAL
+[ ] Secure local tools or shop access
+[ ] Test 1390-B – how to get into computer?
+[ ] Need to bring audio interface?
+
+
+WEBSITE
+[ ] Design and launch
+
+
+
+
+
+
+
+

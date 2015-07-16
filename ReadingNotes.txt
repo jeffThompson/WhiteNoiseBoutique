@@ -1,0 +1,537 @@
+
+PRNG = pseudo random number generator
+
+- - - - - - - -
+
+"Random Number Generation"
+Wolfram
+https://reference.wolfram.com/language/tutorial/RandomNumberGeneration.html
+
+"Pseudorandom numbers [are] important for simulating events, estimating probabilities and other quantities, making randomized assignments or selections, and numerically testing symbolic results."
+
+Random number gen at the heart of "Monte Carlo estimates"
+
+Congruential (linear, periodic, low quality esp when need lots of #s)
+- VERY FAST
+- x[i+1] = (bx[i] + c) % m
+- b = multiplier, c = increment, m = modulus
+- default settings for Wolfram:
+	b = 1283839219676404755
+	c = 0 (makes it a "multiplicative congruential generator")
+	m = 2305843009213693951 (period of repeat always ≤ m)
+
+Extended Cellular Automata (default for Wolfram)
+- "extremely high level of randomness"
+- "uses a particular five-neighbor rule, so each new cell depends on five nonadjacent cells from the previous step"
+- evolves a set of 0/1s according to deterministic rule
+- subset of cells is output as random bits from which the number is generated
+- default settings for Wolfram:
+	size = 80 (gets mult by 64)
+	skip = 4  (# of cells to skip)
+	start = 0 (which cell to start from)
+- defaults chosen for quality and speed and usually don't need to be changed
+- no algo given, maybe can look up?
+
+Mersenne Twister
+- "generalized feedback shift register generator"
+- period of 2^19937 - 1
+- no options in Wolfram
+
+Intel MKL generator
+- provided by Intel's MKL libraries
+
+Rule 30 CA generator
+- f(i, t+1) = f(i -1, t) \/ (f(i,t) \/ f(i+1, t))
+- where f(i,t) is the value of cell i at time t
+- size = 9 (default, gets mult by 29)
+- uses only first bit from each state vector
+- slower than "extended CA"
+
+uniform generators vs non-uniform (former doesn't repeat?)
+
+lots of refs at the end
+
+- - - - - - - - - -
+
+"Uniform and Non-Uniform Pseudo Random Numbers Generators for High Dimensional Applications"
+Régis Lebrun
+http://www.slideshare.net/regislebrun/uniform-and-nonuniform-pseudo-random-numbers-generators-for-high-dimensional-applications
+
+- "Anyone who considers arithmetical methods of producing random digits is, of course, in a state of sin." John Von Neumann, 1951, cited in "The Art of Computer Programming, Vol 2: Seminumerical Algorithms" by Donald Knuth, pub Addison-Wesley, 1998
+
+- uniform rand # gens are "capabable of producing independent, identically distributed realizations of the uniform distribution over [0,1]"
+
+- uniformitity of PRNG must pass Kolmogorov-Smirnov, Chi-square, and gap tests
+- independence must pass serial, spectral, and autocorrelation tests
+
+- typical period of linear  = 2^32 = 4,294,967,296
+- in linear generator, m should be prime (gives max period)
+- contains other refs on slide 47
+- IEEE 754: floating point spec
+
+- - - - - - - - - -
+
+"Random Number Generator"
+https://en.wikipedia.org/wiki/Random_number_generation
+
+- traditional methods
+	- dice
+	- coin flipping
+	- shuffling cards
+	- yarrow stalks (by divination) in the I Ching
+	- drawing straws
+- crypographically secure RNG: yarrow (which runs on Linux, Mac as /dev/random), Fortuna
+- hardware RNG preferred over algos
+- PRNG ok with seed is secret
+- physical sources can be:
+	- atmosph noise, thermal noise, CMB radiation
+	- "avalanche noise in Zener diodes"
+	- clock drift
+	- radio noise
+- tools to read random noise can intro biases in readings
+- "The speed at which entropy can be harvested from natural sources is dependent on the underlying physical phenomena being measured."
+- Linux's /dev/random blocks until sufficient entropy is harvested from the environ
+- PRNG algos are "completely determined by a shorter initial value [the seed]."
+- PRNGs can be certified for security-critical cryptographic purposes (ex: yarrow, fortuna)
+- "Middle square method" using pencil/paper
+	- easy but low-quality
+	- take a #, square it, take middle digits as output, use as new seed
+	- ex:
+			   675248		seed
+			455959861504	squared
+			   959861		middle digits = new seed
+
+	- if not enough digits in square, add leading 0s
+	- other challenges b/c of #s that cause repetition or patterns
+	- created by Franciscan friar known as Brother Edvin b/w 1240-50AD
+	- often credited to John von Neumann, who desc it at a conf in 1949
+	- nice Python implement:
+		n = int(input("seed:"))
+		already_seen = set()
+		while n not in already_seen:
+    		already_seen.add(n)
+    		n = int(str(n * n).zfill(8)[2:6])
+    		print(n)
+		print('We are back at the number %s and will repeat forever' % n)
+- Python, Ruby, PHP RNG = Mersenne Twister = not crypto sufficient
+- can read from /dev/random (much better) in Python using:
+	import os, struct
+	i = struct.unpack('<L', os.urandom(4))[0]
+- "multiply-with-carry" inv by George Marsaglia
+		m_w = <seed1>	# can't be 0 or 0x464ffff (73727999)
+		m_z = <seed2>
+
+		def mult_with_carry():
+			m_z = 36969 * (m_z & 65535) + (m_z >> 16)
+    		m_w = 18000 * (m_w & 65535) + (m_w >> 16)
+    		return (m_z << 16) + m_w
+- mult RNGs can be combine (ex using bitwise XOR op) to make an RNG at least as good as the best RNG used in the set (also called "software whitening")
+
+- - - - - - - -
+
+Mac /dev/random man page
+https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man4/random.4.html
+
+- "The random device implements the Yarrow pseudo random number generator algorithm and maintains its entropy pool.  Additional entropy is fed to the generator regularly by the SecurityServer daemon from random jitter measurements of the kernel.  SecurityServer is also responsible for periodically saving some entropy to disk and reloading it during startup to provide entropy in early system operation."
+
+- "Yarrow is a fairly resilient algorithm, and is believed to be resistant to non-root. The quality of its output is however dependent on regular addition of appropriate entropy. If the SecurityServer system daemon fails for any reason, output quality will suffer over time without any explicit indication from the random device itself. Paranoid programmers can counteract this risk somewhat by collecting entropy of their choice (e.g. from keystroke or mouse timings) and seeding it into random directly before obtaining important random numbers."
+
+- - - - - - - -
+
+HW Rand # Gen
+https://en.wikipedia.org/wiki/Hardware_random_number_generator
+
+- usually made up of transducer to convert physical phenom into elec signal >> amplifier >> ADC
+- "macroscopic" processes such as coin flips, which are dependent on "micro-details of the initial conditions of each use" (ie chaos)
+- Galton desc using dice in 1890 (http://galton.org/essays/1890-1899/galton-1890-dice.pdf)
+- numbered ping-pong balls and blown air (US patent 4786056)
+	- http://galton.org/essays/1890-1899/galton-1890-dice.pdf
+- RAND used "electronic roulette wheel"
+	- rand freq pulse source of ~100k pulses/sec, gated 1/sec by a const freq pulse and fed into a 5-bit binary counter
+	- built by Douglas Aircraft
+	- implemented suggestion by Cecil Hasting to use 6D4 as noise source
+	- 20 of 32 possible counter values were mapped onto the 10 decimal digits and other 12 were discarded
+- quantum mech says that nuclear decay of atoms are fundamentally random and cannot be predicted, making them the "gold standard" of randomness – see Bell test experiments (https://en.wikipedia.org/wiki/Bell_test_experiments)
+- Examples of quantum noise
+	- shot noise (from light and diode – easy and cheap, narrow bandwidth though)
+	- nuclear decay (Geiger counter)
+	- photons through a semi-trans mirror (refl/trans = 0/1)
+- phys phenom w/o quantum-random properties:
+	- thermal noise from a resistor
+	- "avalanche noise" from the breakdown of a zener diode
+	- clock drift
+
+- - - - - - - - -
+
+Nothing Up My Sleeve #s
+https://en.wikipedia.org/wiki/Nothing_up_my_sleeve_number
+
+- #s whose construction are above suspician of hidden properties
+- no room for adjustment (which might create a backdoor)
+- Dual EG DRBG, a NIST-rec RBG, shown by Snowden in 07 leak to have an NSA backdoor
+- ex: using digits from pi
+
+- - - - - - - - -
+
+Key (crypto)
+https://en.wikipedia.org/wiki/Key_%28cryptography%29
+
+- Kerckhoff's Principle
+	- "only secrecy of the key provides security"
+	- reformulated as Shannon's maxim: "the enemy knows the system"
+	- 1883
+	- a sys should be secure even if everything about it, except the key, is public knowledge
+	- in contrast to "security through obscurity" (https://en.wikipedia.org/wiki/Security_through_obscurity)
+- assume "the enemy" already knows the algo >> key must be secret
+- min size of 80 bits for strong sec with symm encryption; 128-bit cons v strong
+- if password/phrase used as key, run through "key derivation function which adds a salt and compresses or expands it to the key length desired"
+- published sequences are bad as key, such as digits of pi
+
+- - - - - - - - -
+
+Linear Congruential Generator
+https://en.wikipedia.org/wiki/Linear_congruential_generator
+
+- x[i+1] = (bx[i] + c) % m (noted above in Wolfram)
+- period is at most the value of m
+- lots of requirements for picking good values (set by Hull-Dobell Theorem)
+- "extremely sensitive to the choice of the parameters c, m, and a."
+- usually m is a power of 2 (usually 2^32 or 64) making math quicker
+- common params: https://en.wikipedia.org/wiki/Linear_congruential_generator#Parameters_in_common_use
+- should not be used when high-qual rand is required
+- Mersenne twister much longer period (2^19937 - 1)
+
+- - - - - - - - -
+
+Blum Blum Shub (BBS)
+https://en.wikipedia.org/wiki/Blum_Blum_Shub
+
+- x[i+1] = x[i]^2 % M
+- where M = p * q (where p/q = two large prime #s)
+- seed (x[0]) should be integer that is co-prime w/ M (ie p&q are not factors of x[0] or one or more of the least sig bits of x[i+1])
+- dev 1986
+- ineffecient but good where "extreme security is needed"
+
+- - - - - - - - -
+
+Cleromancy
+https://en.wikipedia.org/wiki/Cleromancy
+
+- aka "casting of lots"
+- normally thought of as random, but might reveal will of God
+- ancient Rome, "sortes" small tablets or counters (made of wood) thrown into urn filled with water or like dice
+- from "Germania", chapter X by Tacitus, desc practice used by Germanic tribes:
+	"They cut a branch from a fruit-bearing tree and divide it into small pieces which they mark with certain distinctive signs and scatter at random onto a white cloth."
+- o-mikuji fortune @ temples
+
+- - - - - - - -
+
+Statistical randomness tests
+https://en.wikipedia.org/wiki/Statistical_randomness#Tests
+
+- Kendall & Smith original four tests
+	- freq: check to make sure roughly same # of every #
+	- serial: same for sequences of two digits at a time (00, 01, 02, etc)
+	- poker: freq 5 @ a time (aaaaa, aaabb, etc) based on hands of poker
+	- gap: dist b/w 0s (00 = dist of 0, 030 dist of 1, etc)
+- should pass all tests at diff scales ("local" and "true" rand) within ~5%
+- 1995, George Marsaglia created set of "diehard tests" as part of CD-ROM w 5 billion pseudorandom #s
+- other tests:
+	- monobit: treat each bit of output as a coin flip, should be ~50%
+	- Wald-Wolfowitz runs test: check trans b/w 0 and 1, compare with expected freq of a random bit seq
+	- autocorrelation
+	- Spectral Test
+	- Maurer's Universal Statistical Test
+- TestU01 lib for C language (intro 07 be Pierre L'Ecuyer & Richard Simard)
+	- http://www.iro.umontreal.ca/~simardr/testu01/tu01.html
+
+- - - - - - - - -
+
+History of Randomness
+https://en.wikipedia.org/wiki/History_of_randomness
+
+- ancient times, rand = fate
+- Chinese used dice before Europeans
+- 300 BC, Epicurus prop that rand exists by itself, ind of human knowl
+	- atoms would swerve at random along their paths, bringing about randomness in world
+- Aristotle, events in 3 classes: certain, probable, and unknowable
+- any set of points (even random ink splatter) can be def by an equation; randomness is a measure of that function's complexity (found by Leibniz, formalized by Kolmogorov and Chaitin)
+- Shannon gave rise to "entropy view" of randomness; rand is opposite of determinism
+- Mendelbrot def 7 states of randomness:
+	- proper mild
+	- borderline mild
+	- slow randomness with finite delocalized moments
+	- slow rand with finite + localized moments
+	- pre-wild
+	- wild
+	- extreme
+- (not really in article: quicksort algo takes O(n^2) to complete, but if pivot points selected uniformly at random, very likely to take O(n log n) to finish)
+
+- - - - - - - - -
+
+History of Random.org
+https://www.random.org/history/
+
+- first version used atmospheric noise from a $10 radio
+- two radio version yielded 1500 bits/sec, or 3k with two radios
+- currently runs on dist system, is tested before it goes out
+
+- - - - - - - - -
+
+Intro to Randomness & Rand #s
+https://www.random.org/randomness/
+
+- uniform means all choices are equally probable when sel
+- in seq, must be statistically ind (ie: roll a 5, 5 is not less likely to occur again)
+- PRNG = deterministic, efficient, periodic
+- PHP rand differs on Linux (good RNGs) and Windows (not so good)
+- TRNG extract from phys phenom
+- TRNG = nonperiodic, slow, non-deterministic
+- disc whether phys phenom is quantum or chaotic – "it all comes down to our beliefs about how the universe works." (is the univ deterministic or not)
+
+- - - - - - - - -
+
+Statistical Analysis
+https://www.random.org/analysis/
+
+- impossible to prove definitively whether a seq is random
+- pass lots of tests, confidence that it is random grows
+- viz as bitmap does help spot patterns (like PHP rand() example)
+- NIST test suite for rand #s state of the art (at least in 05); Diehard no longer maintained
+- tests used on random.org
+	- Frequency Test: Monobit
+    - Frequency Test: Block
+    - Runs Test
+    - Test for the Longest Runs of Ones in a Block
+    - Binary Matrix Rank Test
+    - Discrete Fourier Transform (Spectral Test)
+    - Non-Overlapping Template Matching Test
+    - Overlapping Template Matching Test
+    - Maurer's Universal Statistical Test
+    - Linear Complexity Test
+    - Serial Test
+    - Approximate Entropy Test
+    - Cumulative Sums Test
+    - Random Excursions Test
+    - Random Excursions Variant Test
+- skew is corrected using Neumann's algo
+	- bits considered in pairs
+	- two are identical, both discarded
+	- two are diff, first is added to output stream
+	- good but ineff (lost 3/4 of the data, even if unskewed)
+
+- - - - - - - - -
+
+PGP
+https://en.wikipedia.org/wiki/Pretty_Good_Privacy
+
+- or "pretty good privacy"
+- created in 1991 by Phil Zimmermann
+- encryption program for privacy and authentication
+- for signing, enc/decrypt email, text, files, dir, and whole disk partitions
+- US govt investigated Zimmermann b/c PGP was "high-strength" crypto and not permissible to be exported from the US (classified as munitions)
+- invest lasted until 96
+- MIT Press released entire source code as book (covered by 1st Ammend) to get around
+- (no longer the law)
+- "Zimmermann's Law": "The natural flow of technology tends to move in the direction of making surveillance easier, and the ability of computers to track us doubles every eighteen months." (2013)
+
+- - - - - - - -
+
+Towards the Perfect Coin Flip
+Elliot Williams
+http://hackaday.com/2014/12/19/nist-randomness-beacon/
+
+- NIST broadcast is crypto signed
+- NIST #s should not be used as keys (since they are public and signed)
+- hashing prevents modification, even from an insider from the system
+- beacon can also be used to prove something is not older than a specific date, since the randomness is verifiable and timestamped (and very unique)
+- how it works:
+	- two HW RNGs generate 512 bits of randomness each
+	- combined using XOR to get a seed value (which is already a really good random #)
+	- seed val collected with timestamp, val of previous output, etc
+	- this is then hashed with SHA-512 and signed with the Beacon's private key
+	- this is called a "signature"
+	- using the Beacon's *public* key, one can verify that the signature corresponds to the data and is from the Beacon
+	- then the signature is hashed with SHA-512 one more time
+	- this is the final output value (the random number)
+- the "hashing preserves the original entropy from the seed value but additionally makes the output value depend on the Beacon's secret key and all the relevant background data in a verifiable way."
+- if you set up an experiment to test the Bell Inequality, it would gen results that were guaranteed to be quantum-mech random and absolutely unknowable before a certain time
+	- two entagled photons are created and sent in opp dir
+	- measurements made in loc far enough away that there is not enough time for light from one meaus station to reach the other until meas are finalized
+	- but ridiculously hard to create such an apparatus (but NIST is working on it)
+- end of article, shell script to verify beacon output
+
+- - - - - - - - -
+
+White Noise
+https://en.wikipedia.org/wiki/White_noise
+
+- random signal with const power spectral density
+- in audio, should be 20 - 20kHz
+- various kinds of white noise
+	- Gaussian (follows normal dist)
+	- Poisson
+	- Cauchy
+
+- - - - - - - - -
+
+NIST Beacon
+http://www.nist.gov/itl/csd/ct/nist_beacon.cfm
+
+- first table of RNs English stat LHC Tippett, part of the "tracts for computers" series
+
+- - - - - - - - -
+
+"Random Numbers – Numberphile"
+https://www.youtube.com/watch?v=SxP30euw3-0&feature=youtube_gdata
+
+- rand # b/w 1-10, 45% of people choose 7
+- RNs all about context – single # not really random
+- good desc of congruential RNG
+- ^ then about a good seed value
+- could use time (such as time since epoch)
+- dice not so good at gen big RN (2 dice = 1 way to make a 2, many to make a 7)
+- 1 dice = 1/6 (totally flat)
+- more dice = closer to normal dist (not uniform (equally likely))
+- uses strontium 90 as radioactive source
+- count how many times radiation hits geiger over set time period
+- somehow knows that that average # over 10 sec is 216
+	- maybe from lots of tests?
+- sub 216 from actual measurement
+- using geiger counter, find deviation from the mean
+- diff b/w # we know is the mean and the actual count
+- math to convert gaussian to uniform dist
+- Greeks knew that prob existed for things like dice
+	- but against the gods, so no study
+	- also, "data from disc" so no empirical test
+	- same as Christians (everything is god's will)
+	- not until Renn that prob gets studied
+
+- - - - - - - - -
+
+A Certain Uncertainty: Random Number Generation from Karl Pearson to the Monte Carlo Method
+Alex Wellerstein
+
+- random mostly considered a neg to be removed
+- "precise definitions, for the purpose of producing a particular coordinated form of uncertainty"
+- chance "[robs] the gods of capriciousness and whim", making the study of randomness a very non-religious, secular move
+- Galton "Dice for Statistical Experiments" in Nature, 42:1070, 1890
+- Galton also manuf his own, v weird dice
+- Pearson's "draftswoman" named Ida McLaren, who wrote out by hand all #s for LHC Tippetts tables
+- randomness less about what seems random to us (ie runs of the same # are in fact random, but don't see it at micro scale) but taken as a whole
+- Ronald A Fisher & Francis Yates "Statistical Tables for Biological, Agricultural, and Medical Research", 1938 incl table of 15k random #s
+	- pulled theirs from a book of log tables
+	- chose 50 digits at a time ("rearranged in random order")
+	- read downwards (rather than across, as the real #s would be written)
+	- rand decisions done by two packs of playing cards
+	- first table to really test and change results to be as empirically random as possible
+- "errors" in this context are a lack of randomness
+- 1930s mark rise of "instrumental" randomness, a rigorous one meant for sci work but ignoring philo implications of "true" randomness
+- randomness is "a positive property, encorced and established by a barrage of testing."
+- Fouccault (esp "Disc & Punish") talks about testing as a way of enforcing normality – can be applied to #s as well as people
+- my comment: but rand also must be tested today if we are to subvert control and normality (ie crypto) to ensure careful randomness
+- Kendall & Smith method for "Tables of Random Sampling Numbers"
+	- also part of tracts for comps
+	- 10 discs, 10" in dia
+	- 10 equal sections #d 0-9
+	- select one "haphazardly" (mult discs to avoid biases in their construction)
+	- mounted on elec motor, spinning at const speed
+	- flash bulb set off by a "the operator [moving] a stylus around a maze of circuits, which would create a circuit, charge a condensor, and set off a flash from a neon lamp, making th edisc appear momentarily stationary and allowing the operator to read off a number indicated by a pointer."
+	- condensor not always take the same time to charge, making it more random
+	- gen ~1500 digits per hour
+- RNs needed for atomic res in WWII to "model the complicated physical processes involved in the implosion of the plutonium [and hydrogen] bomb"
+- the "Monte Carlo" method has no precise def, but is a set of math tech for simulation
+- According to Von Neumann (quoting Alex) "no true random numbers, only methods to produce them"
+	- Von Neumann: "We are dealing with mere 'cooking recipes' for making digits; probably they can not be justified, but should merely be judged by their results... If the digits work well on one problem, they seem usually to be sucessful with others of the same type." (qtd "Various Techniques", have as PDF)
+- first mention of "pseudorandom" cited by Oxford Eng Dict to IBM seminar pub from 1949
+	- "Seminar on Scientific Computation, November 1949" (IBM) 104/2
+	- "a random number c lying between 0 and 1 is selected from a store, or a pseudo-random number c lying between 0 and 1 is computed arithmetically."
+	- also from OED:
+		- "Journal Assoc Computing Mach, 1954": "It is desirable that the machine... be able to manufacture its own random or pseudo-random numbers."
+	- "pseudorandom, adj." OED Online. Oxford University Press, June 2015. Web. 10 July 2015.
+- ENIAC took 600ms to read a RN from a punch card; 3-4ms to generate one
+- Von Neumann was all about speed and practicality (to dev the bomb as fast as possible) not HQ RNs (it was "random for practical purposes")
+- RAND was "pumped up on postwar funding, manpower, and computing resources."
+- digits "rerandomized" by taking % 10 from sum of each digit from it's corresponding digit on the prev card
+- useful for 4 decades after its 1955 publication
+- RAND inst users to select a rand page, finger on rand 5 digit # = line # to start at
+	- "bibliomancy" a similar method for picking passages at random
+	- mark # so you don't ever start in the same place again
+- mid 1950s, British General Post Office dev ERNIE (Electronic Random Number Indicator Equipment)
+	- used for a lottery to encourage purchasing bonds
+	- based on machine to simulate traffice conditions
+
+- - - - - - - - -
+
+History of RAND's Random Digits
+George W. Brown for RAND
+http://www.rand.org/pubs/papers/P113.html
+
+- - - - - - - - -
+
+Some Tests of the Randomness of a Million Digits
+Bernice Brown
+http://www.rand.org/pubs/papers/P44.html
+
+- - - - - - - - -
+
+"Various Techniques Used in Connection with Random Digits"
+John von Neumann
+https://dornsifecms.usc.edu/assets/sites/520/docs/VonNeumann-ams12p36-38.pdf
+
+- "There is no such thing as a random number – there are only methods to produce random numbers."
+
+- - - - - - - - -
+
+"The Diceware Passphrase Home Page"
+http://world.std.com/~reinhold/diceware.page.html
+
+- interesting idea using dice
+	- huge list of words
+	- each preceeded by 5-digit #, made from 1-6 (ie 615243)
+	- roll 5 times to create index, use what's there
+	- implem as software but could work IRL
+
+- - - - - - - - -
+
+"The Generation of Random Variates"
+Thomas G Newman + Patrick L Odell
+1971
+(esp good biblio)
+
+"Chapter 8: Wanted, Random #s"
+Deborah J Bennett
+from "Randomness"
+1998
+(ref #2 also has partial biblio on phil writings on randomness)
+
+"Gambling with Numbers"
+Ivars Peterson
+from "The Jungles of Randomness: A Mathematical Safari"
+1998
+
+"Randomness and Random Sampling of #s"
+Maurice G Kendall & Babington Smith
+Journal of the Royal Statistical Society
+101:1, 1938 (pg 147-66)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

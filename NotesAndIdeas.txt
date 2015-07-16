@@ -1,0 +1,43 @@
+
+NOTES && IDEAS:
+
+Laminated "menu" of seeds, generators – on back, info about crypto secure
+
+Tolex!
+
+Don't need to store entire rand seq, just a hash of it?
+
+Nice resonance w piece in Britain (home of Pearson, Galton), where stats (and a focus on rand) is born
+
+Radical empiricism – contrast to the control of #s, testing, systems, and standards
+
+One-time pads
+
+Listening stations!
+
+Desc of radioactive RNG from HotBits:
+	- http://www.fourmilab.ch/hotbits/how3.html
+	- http://www.fourmilab.ch/hotbits/hardware3.html
+	- http://www.fourmilab.ch/hotbits/hardware.html
+
+If Kickstarter, offer stretch goals for pink and brown?
+
+HW RNGs
+- http://www.comscire.com/cart/index.php?main_page=page&id=3&zenid=mp973fddsko5oviuim0lqf7eu0
+
+ONLINE SOURCES (could choose from these if preferred)
+- Random.org
+- http://www.randomserver.dyndns.org/client/random.php?type=INT&a=1&b=10&n=1
+- https://beacon.nist.gov/home
+- http://random.irb.hr/
+- (seed only) https://www.fourmilab.ch/hotbits/secure_generate.html
+
+RANDs method of picking a starting point in their book: random page, close eyes, finger
+
+https://www.bouncycastle.org/latest_releases.html
+
+Chua circuit
+http://www.chuacircuits.com/synchronization.php
+
+
+
