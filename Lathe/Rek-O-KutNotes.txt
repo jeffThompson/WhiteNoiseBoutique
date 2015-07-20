@@ -1,0 +1,21 @@
+
+REK-O-KUT NOTES
+P-43M turntable
+Master Pro M-5 lathe
+
++ Ball bearing can be replaced with 1/4" (quieter) or 5/16"
++ Spray motor cleaner and compressed air into oiling turrets (little funnels on side of motor), then add a light oil
++ Idler wheels (rubber ones that drive the platter) can be removed; clean metal parts with lighter fluid; reassemble and lubricate with thin oil (like gun oil)
++ Idler wheels can be cleaned with lacquer thinner, but if they harden up they need to be refurbished
++ Main bearing should get SAE 20 motor oil, enough to cover the bearing
++ Run motor for at least 15 minutes before adj speed screws
++ Leadscrew in various LPI (lines per inch): 105, 120, 135, 210, 240, 270
++ Either "Inside Out" (IO) or "Outside In" (OI) direction
+
+
+RESOURCES
+http://jelabsarch.blogspot.com/2012/06/rek-o-kut-tips.html
+http://www.eternalgoods.com/Rek-O-Kut_M5S_lathe_mid50s.pdf
+http://www.technicalaudio.com/pdf/Gordon_Clark_folder/Rek-O-Kut_disc_recording_and_playback.pdf
+
+Ed Crockett for idler wheel repairs
