@@ -494,6 +494,32 @@ http://world.std.com/~reinhold/diceware.page.html
 
 - - - - - - - - -
 
+Hashing notes
+
+- never store full data as plaintext
+- store "representation", ie hash with salt (basically just append salt (a super random string) to the text and hash that)
+- ideally, salt diff for each user
+- then throw out orig data
+- adding salt prevents using "rainbow table" (pre-decrypted common passwords like "password" and "qwerty")
+- don't need to know the secret data (ie pw or noise), just be able to verify
+- SHA2 probably best
+- salt should be very random and long
+- rainbow tables >> "rainbow attacks" (also called "dictionary attacks")
+
+Via:
+- http://stackoverflow.com/questions/1054022/best-way-to-store-password-in-database
+- http://stackoverflow.com/questions/536584/non-random-salt-for-password-hashes/536756#536756
+
+- - - - - - - - -
+
+"Random Number Generation"
+http://csrc.nist.gov/groups/ST/toolkit/random_number.html
+
+- NIST only has approved deterministic RNGs, no "true" or non-det RNGs (NDRNGs)
+- Approved: FIPS 186-2
+
+- - - - - - - - -
+
 "The Generation of Random Variates"
 Thomas G Newman + Patrick L Odell
 1971
