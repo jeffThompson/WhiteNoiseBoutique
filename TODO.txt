@@ -9,17 +9,9 @@
     //       ///////         ///////     ///////   //
 
 
-KICKSTARTER
-[ ] Do it?
-[ ] Rewards
-[ ] Video
-[ ] Stretch goals?
-[ ] Advertise everywhere
-
-
 TRAVEL ARRANGMENTS
 [ ]	Plane ticket
-[ ] Train ticker
+[ ] Train ticket
 [ ] Airbnb
 
 
@@ -31,34 +23,49 @@ PACKING
 
 
 ORDER
+[ ]	Dice cup
+[ ] Cutting head OR parts
+[ ] Pelican case for lathe
+[ ] Amplifier or plan for Fender amp
 [ ] Hardware RNGs
 [ ] Faraday cage materials
-[ ] Record jackets, etc
+[ ] Record jackets
+[ ] Vinyl blanks
+[ ] VOID stickers
 [ ] Power adapters
+[ ] iPad?
+[ ] Center labels
+
+
+MAKE
+[ ] Label placement jig
+[ ] Hole cutting jig for center hole
 
 
 DESIGN
+[ ] Website!
 [ ] "Menu" of seeds and generators
 [ ] Final labels
+[ ] Vinyl lettering for window
+[ ] Serial labels ready for printing
+[ ] Insert for each record with info?
+[ ] Center label
 
 
 PRINT
 [ ] Checklist labels
 [ ] Serial # labels
-[ ] Insert for each record with info?
 
 
 SOFTWARE
-[ ] Build software RNGs
-[ ] Figure out system tying together
-[ ] Max patch for generating noise from file
+[ ] HTML interface
 [ ] Automate getting digits from online services?
 
 
 LATHE
-[ ] Clean lathe
 [ ] Build cutter head
 [ ] Test
+[ ] Plate for power, audio in and tonearm out (plastic, lasercut)
 [ ] Install inverse-RIAA filter, amp?
 [ ] How to pack – Pelican case?
 
@@ -71,17 +78,5 @@ ONCE PLACE IS SECURED
 
 GENERAL
 [ ] Secure local tools or shop access
-[ ] Test 1390-B – how to get into computer?
 [ ] Need to bring audio interface?
-
-
-WEBSITE
-[ ] Design and launch
-
-
-
-
-
-
-
 
