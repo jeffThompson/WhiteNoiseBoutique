@@ -5,6 +5,10 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 
 Interface for generating boutique white noise.
 
+TODO
+- email table with link to file as wav, txt, etc?
+- web interface with Flask
+
 PROCESS
 (not many of these items can be skipped if specified)
 1.  generate noise using either:
@@ -45,8 +49,8 @@ delete_noise_file = 	True							# securely delete noise file when done?
 noise_len = 			10 * 44100						# duration in sec * sample rate
 seed = 					None							# seed value (or None) - doesn't work with all gens
 
-dieharder_tests = []
-#dieharder_tests = 		[ 1, 2, 101, 202, 203 ]
+# dieharder_tests = []
+dieharder_tests = 		[ 1, 2, 101, 202, 203 ]
 
 # files created and used
 noise_byte_file = 		'bytes.dat'
