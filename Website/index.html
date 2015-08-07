@@ -1,9 +1,186 @@
-<html>
-<head>
+<!doctype html>
+<html profile="http://www.w3.org/2005/10/profile">
 	<title>White Noise Boutique</title>
+
+	<!-- STYLES and FONTS -->
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Crimson+Text:300,300italic' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/png" href="http://www.jeffreythompson.org/graphics/favicon.png">
+
+	<!-- (helps with column-breaks) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- ANALYTICS -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-65875759-1', 'auto');
+		ga('send', 'pageview');
+	</script>
 </head>
 
+
 <body>
-	<p style="text-align:center; margin-top:50px">[ coming very soon ]</p>
+	<div id="wrapper">
+
+		<!-- HEADER -->
+		<header>
+			<img id="logo" src="images/Logo_web.jpg">
+			<h1>WHITE NOISE BOUTIQUE</h1>
+			<p><em>A pop-up store dedicated to producing the finest quality white noise, cut to unique vinyl records.</em></p>
+		</header>
+
+
+		<!-- LOCATION -->
+		<section class="details">
+			<div id="location">
+				<h2>LOCATION &amp; HOURS</h2>
+				<ul>
+					<li>11&ndash;18 September, 2015</li>
+					<li><a href="https://goo.gl/maps/vSbKg">16 Brighton Square, Brighton UK</a></li>
+					<li>Open Tuesdays&ndash;Saturdays, 11.00&ndash;20.00</li>
+				</ul>
+			</div> <!-- end location -->
+
+
+			<!-- CONTACT -->
+			<div id="contact">
+				<h2>CONTACT</h2>
+				<ul>
+					<li><a href="http://www.jeffreythompson.org">Jeff Thompson</a>, Founder & Proprietor</li>
+					<li><a href="mailto:mail@whitenoiseboutique.com">mail@whitenoiseboutique.com</a></li>
+				</ul>
+			</div> <!-- end contact -->
+
+
+			<!-- EVENTS -->
+			<div id="specialevents">
+				<h2>SPECIAL EVENTS</h2>
+				<p style="margin:-10px 0 20px 0"><em>All events are free and open to the public.</em></p>
+
+				<ul>
+					<li><strong>Friday, 11 September at 18.00&ndash;<wbr>20.00</strong><br>Opening reception and live music</li>
+					<li><strong>Wednesday, 16 September at 20.00&ndash;<wbr>22.00</strong><br>Curated white noise listening session</li>
+					<li><strong>Friday, 18 September at 18.00&ndash;<wbr>20.00</strong><br>Closing reception and live music</li>
+				</ul>
+			</div> <!-- end events -->
+		</section>
+
+
+		<!-- GENERATORS -->
+		<img src="images/rendering-web.jpg">
+		<section class="details">
+			<div id="generators">
+				<h2>THE VERY BEST GENERATORS</h2>
+				<p>We use the very best in hardware and algorithmic generators to produce your white noise. Select from a variety of vintage and cutting-edge technologies and be ensured you will receive the best quality white noise possible.</p>
+
+				<p>Generators include:
+					<ul class="actualList">
+						<li><a href="http://www.jeffreythompson.org/blog/2015/07/16/a-few-historical-random-number-generators/">Type 1390-B</a> tube-powered noise generator</li>
+						<li><a href="https://en.wikipedia.org/wiki//dev/random">Hard-drive entropy</a></li>
+						<li>Crypographically secure algorithmic generators such as <a href="https://en.wikipedia.org/wiki/Threefish">Threefish</a> and <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES_OFB</a></li>
+						<li>Hardware generators such as <a href="http://ubld.it/products/truerng-hardware-random-number-generator/">TrueRNG</a></li>
+						<li>Atmospheric noise via an un-tuned FM radio</li>
+					</ul>
+				</p>
+
+				<p>You will also be able to choose a seed, or we will create one randomly for you using a computer or physical devices like casino-quality dice, bingo cage, or yarrow sticks.</p>
+			</div> <!-- end generators -->
+
+
+			<!-- TESTS -->
+			<div id="tests">
+				<h2>TESTS FOR RANDOMNESS</h2>
+				<p>Not all noise is created equal: we use top-of-the-line statistical tests to ensure your white noise is as random as possible. After being generated, your noise undergoes a battery of tests (see the <a href="#testsfaq">FAQ</a> below for more information). The results are marked on a label affixed to your white noise record as an indicator of its quality.</p>
+			</div> <!-- end tests -->
+
+
+			<!-- RECORDS -->
+			<div id="vinylrecords">
+				<h2>HAND-CUT VINYL RECORDS &amp; DIGITAL DOWNLOADS</h2>
+				<p>Once generated and tested, your noise will be hand-cut onto a unique 7-inch vinyl record that can be played on any record player. Each record features a label that lists the generator, tests passed, and other information about your noise. It is sealed with a tamper-proof sticker and a unique serial number. Your noise will also be sent to you as a secure digital download.</p>
+
+				<p>If you don't have a turntable, a digital-only option is also available.</p>
+			</div> <!-- end records -->
+		</section>
+
+
+		<!-- FAQ -->
+		<img src="images/LP-Mockup.jpg" style="margin-bottom:50px">
+		<h2>FREQUENTLY ASKED<br>QUESTIONS</h2>
+		<section class="faq" id="faq">
+			<div class="question" id="cryptographicallysecure">
+				<p>Can my white noise be made to be cryptographically secure?</p>
+				<p>In short, we will do our absolute best but you should take your own precautions depending on your individual needs.</p>
+
+				<p>We offer:
+					<ul class="actualList">
+						<li>A <a href="https://en.wikipedia.org/wiki/Faraday_cage">Faraday cage</a> for generating your noise to avoid electro-magnetic radiation</li>
+						<li>Several generators that are considered cryptographically-secure, including <a href="https://en.wikipedia.org/wiki/Threefish">Threefish</a> and <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES_OFB</a></li>
+						<li>Packaging closed with tamper-proof sticker and a unique serial number</li>
+						<li>The option not to have the <a href="https://en.wikipedia.org/wiki/Salt_%28cryptography%29">salted</a> <a href="https://en.wikipedia.org/wiki/Hash_function">hash</a> of your white noise stored in our database &ndash; this ensures no one can read your noise, but means it may not be unique</li>
+						<li>Digital files are securely deleted once it is cut to the record or delivered digitally</li>
+					</ul>
+				</p>
+
+				<p>Of course, you should take your own precautions. We are happy to accommodate any requests possible to ensure your noise meets your needs.</p>
+			</div>
+
+			<div class="question" id="pseudovstrue">
+				<p>What is the difference between <em>pseudo</em> and <em>true</em> random noise?</p>
+				<p>Computers are deterministic devices, ultimately only capable of generating 0s and 1s. Random numbers created by computers are the result of carefully crafted algorithms, but are really only <em>psuedo-random</em>. By contrast, physical methods like atmospheric noise generate <em>true</em> random numbers.</p>
+
+				<p>Depending on your needs and aesthetic preferences, we offer both psuedo and true random number generators. Please see our menu for the full list of options.</p>
+			</div>
+
+			<div class="question" id="uses">
+				<p>What can I use white noise for?</p>
+				<p>We offer the very best quality white noise available anywhere. Your noise can be used for a variety of purposes, including:
+				<ul class="actualList">
+					<li>Listen as music</li>
+					<li>A unique artwork for your collection</li>
+					<li>A poetic object</li>
+					<li>Crytpographic purposes where high-quality random numbers are required, such as passwords or one-time pads</li>
+				</ul>
+				</p>
+			</div>
+
+			<div class="question" id="unique">
+				<p>How can you ensure my white noise is unique?</p>
+				<p>We pride ourselves on providing absolutely unique white noise, ensuring that you are the only person in the world to own your exact randomness. After being generated, your noise is run through a <a href="https://en.wikipedia.org/wiki/Hash_function">hashing</a> algorithm, which condenses it into a short, unique string of characters. This hash is checked against all other hashes we have ever created &ndash; if it is not unique, the noise is discarded.</p>
+
+				<p>We then store your hash in a database, unless you request we do not (see <a href="#cryptographicallysecure">"Can my white noise be made to be cryptographically secure?"</a> for more information on this).</p>
+			</div>
+
+			<div class="question" id="testsfaq">
+				<p>What tests do you perform on white noise?</p>
+				<p>Even the most random-seeming data can contain small amounts of order. While measuring randomness can be difficult, we run our white noise through ten tests to make sure our product is as random as possible. Many of these tests are part of the rigorous <a href-"https://www.phy.duke.edu/~rgb/General/dieharder.php">Dieharder</a> suite to ensure maximum quality. The results are marked on a label affixed to your record: an <em><strong>X</strong></em> means your noise passes that test, a dash-mark means it passes weakly.</p>
+			</div>
+
+			<div class="question" id="premade">
+				<p>Do you offer pre-made white noise?</p>
+				<p>Yes, if you do not have time to wait for us to generate custom-made noise for you, we offer a selection of pre-made records for purchase.</p>
+			</div>
+		</section> <!-- end faq -->
+
+
+		<!-- FOOTER -->
+		<footer id="about">
+			<ul>
+				<li>A project by <a href="http://www.jeffrethompson.org">Jeff Thompson</a></li>
+				<li>Commissioned by <a href="http://brightondigitalfestival.co.uk/">Brighton Digital Festival</a></li>
+				<li><a href="https://github.com/jeffThompson/WhiteNoiseBoutique">Source code &amp; hardware</a></li>
+				<li>Est. 2015</li>
+			</ul>
+		</footer>
+
+	</div> <!-- end wrapper -->
+
+<!-- nice smart quotes, via: http://smartquotesjs.com -->
+<script src="js/smartquotes.min.js"></script>
+
 </body>
 </html>
+
