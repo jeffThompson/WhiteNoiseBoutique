@@ -9,10 +9,25 @@
     //       ///////         ///////     ///////   //
 
 
+DUMB (AND NOT SO) QUESTIONS
+[ ] How to write time for store hours? Am/pm?
+[ ] Borrow any tools? Access to university shop?
+[ ] Delivery address for shipping
+[ ] Actual rent with util, etc
+[ ] BDF logo (Wired Sussex too?) for site and vinyl
+[ ] Borrow a TV? Rent?
+[ ] Paint/clean place – super dirty and in bad shape for such rent
+[ ] If I need to – rollers, etc I can borrow?
+[ ] Wifi in store? Need for cc processing, uploading, etc
+[ ] Musicians for events?
+[ ] Offical announcement so I can start promoting?
+[ ] VAT? Business license?
+
+
 TRAVEL ARRANGMENTS
-[ ]	Plane ticket
 [ ] Train ticket
-[ ] Airbnb
+[-] Airbnb
+[X]	Plane ticket
 
 
 PACKING
@@ -22,34 +37,57 @@ PACKING
 [ ] What to ship, what to bring
 
 
+BORROW
+[ ] Tools, or access to shop?
+[ ] TV? with wall mount and player?
+
+
+WEBSITE
+[ ] Proof for typos (again)
+[X] Design
+[X] FAQ
+[X] Test
+[X] Launch
+[X] Analytics
+
+
+PROMO
+[ ] Advert on social media
+[ ] Reach out to reporters worked with in the past?
+
+
 ORDER
 [ ]	Dice cup
-[ ] Cutting head OR parts
 [ ] Pelican case for lathe
 [ ] Amplifier or plan for Fender amp
-[ ] Hardware RNGs
 [ ] Faraday cage materials
 [ ] Record jackets
 [ ] Vinyl blanks
-[ ] VOID stickers
 [ ] Power adapters
 [ ] iPad?
 [ ] Center labels
+[ ] Media player?
+[ ] Audio interface? Borrow from music?
+[X] Cutting head
+[X] VOID stickers
+[X] Hardware RNGs
 
 
 MAKE
 [ ] Label placement jig
 [ ] Hole cutting jig for center hole
+[ ] Cases for hardware parts, etc
 
 
 DESIGN
-[ ] Website!
 [ ] "Menu" of seeds and generators
 [ ] Final labels
 [ ] Vinyl lettering for window
-[ ] Serial labels ready for printing
+	- vinyl for wall as well? instructions/menu?
 [ ] Insert for each record with info?
 [ ] Center label
+[ ] Video for TV?
+[X] Serial labels ready for printing
 
 
 PRINT
@@ -63,11 +101,17 @@ SOFTWARE
 
 
 LATHE
-[ ] Build cutter head
+[ ] Build/test cutter head
 [ ] Test
 [ ] Plate for power, audio in and tonearm out (plastic, lasercut)
+[ ] New leadscrew?
+[ ] Flatten platter?
 [ ] Install inverse-RIAA filter, amp?
 [ ] How to pack – Pelican case?
+[ ] Fuse and fuse holder b/w audio in and cutter head
+[ ] Vacuum system
+[ ] Heated stylus?
+[ ] Order more styli?
 
 
 ONCE PLACE IS SECURED
@@ -75,8 +119,4 @@ ONCE PLACE IS SECURED
 [ ] Furniture layout, BOM
 [ ] Design/cut vinyl lettering
 
-
-GENERAL
-[ ] Secure local tools or shop access
-[ ] Need to bring audio interface?
 
