@@ -1,6 +1,14 @@
 
 NOTES && IDEAS:
 
+
+…or cutting head parts
+Surface transducer	 $20.00 	2	 $40.00 	 YES 	 YES 	 Sparkfun 		https://www.sparkfun.com/products/10975
+Small speakers	 $12.62 	2				 Digi-Key 		http://www.digikey.com/product-search/en?lang=en&site=us&KeyWords=CMS0401KL-3X
+Aluminum L-extrusion	 $15.99 	1	 $15.99 	 YES 	 YES 	 Local hardware store
+
+
+
 All dieharder generators
 #=============================================================================#
 #            dieharder version 3.31.1 Copyright 2003 Robert G. Brown          #
