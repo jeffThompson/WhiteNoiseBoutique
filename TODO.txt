@@ -9,28 +9,40 @@
     //       ///////         ///////     ///////   //
 
 
-DUMB (AND NOT SO) QUESTIONS
-[ ] How to write time for store hours? Am/pm?
-[ ] Borrow any tools? Access to university shop?
-[ ] Delivery address for shipping
+QUESTIONS
+[ ] Paint/clean place – super dirty and in bad shape for $
+	- I'll do, borrow rollers
+[X] Delivery address for shipping
+	- waiting to see if necessary
 [ ] Actual rent with util, etc
-[ ] BDF logo (Wired Sussex too?) for site and vinyl
-[ ] Borrow a TV? Rent?
-[ ] Paint/clean place – super dirty and in bad shape for such rent
-[ ] If I need to – rollers, etc I can borrow?
-[ ] Wifi in store? Need for cc processing, uploading, etc
+	- 48GBP per day
+[ ] Wifi in store? Need for credic card processing, uploading, etc
+	- Laurence look into; is there a portable travel option?
+	- 800MB from AT&T = $120
+[ ] Donate furn when done?
+	- several options, might use for next project
 [ ] Musicians for events?
-[ ] Offical announcement so I can start promoting?
+	- 3 sentence brief of what I'm looking for
+	- should pay expenses at least
 [ ] VAT? Business license?
+	- Laurence looking into, probably ok without
+[X] Cancel 16 Sept event, merge into 2
 
 
 TRAVEL ARRANGMENTS
 [ ] Train ticket
-[-] Airbnb
+[X] Airbnb
 [X]	Plane ticket
 
 
 PACKING
+[ ] Tools to bring:
+	- tape measure
+	- level
+	- vinyl squeegee thing
+	- tape
+	- driver bits (phillips, square?)
+	- combo square
 [ ] Box for stuff, padding material
 [ ] Shipping quote
 [ ] Get delivery address
@@ -38,8 +50,11 @@ PACKING
 
 
 BORROW
-[ ] Tools, or access to shop?
-[ ] TV? with wall mount and player?
+[-] Tools
+	- circular saw and drill
+	- from Fabrica
+[-] TV? with wall mount and player?
+	- from Fabrica w/ player
 
 
 WEBSITE
@@ -54,16 +69,17 @@ WEBSITE
 PROMO
 [ ] Advert on social media
 [ ] Reach out to reporters worked with in the past?
+[ ] FB events for opening, etc
 
 
 ORDER
 [ ]	Dice cup
 [ ] Pelican case for lathe
 [ ] Amplifier or plan for Fender amp
-[ ] Faraday cage materials
-[ ] Record jackets
+[X] Faraday cage materials
+[X] Record jackets
 [ ] Vinyl blanks
-[ ] Power adapters
+[X] Power adapters
 [ ] iPad?
 [ ] Center labels
 [ ] Media player?
@@ -77,6 +93,9 @@ MAKE
 [ ] Label placement jig
 [ ] Hole cutting jig for center hole
 [ ] Cases for hardware parts, etc
+[ ] USB out for 1390
+[ ] Case for USB RNG
+[ ] Top for dice tray?
 
 
 DESIGN
@@ -84,15 +103,19 @@ DESIGN
 [ ] Final labels
 [ ] Vinyl lettering for window
 	- vinyl for wall as well? instructions/menu?
+	- BDF logo & Arts Council of England for site and vinyl
+		- Laurence will find BDF logo, download ACE
 [ ] Insert for each record with info?
 [ ] Center label
-[ ] Video for TV?
+[ ] Video for TV
 [X] Serial labels ready for printing
 
 
 PRINT
 [ ] Checklist labels
 [ ] Serial # labels
+[ ] Center labels
+[ ] "Menus"
 
 
 SOFTWARE
@@ -101,22 +124,21 @@ SOFTWARE
 
 
 LATHE
-[ ] Build/test cutter head
-[ ] Test
-[ ] Plate for power, audio in and tonearm out (plastic, lasercut)
+[ ] Install/test cutter head
+[ ] Test cuts
+[X] Plate for power, audio in and tonearm out (plastic, lasercut)
 [ ] New leadscrew?
 [ ] Flatten platter?
 [ ] Install inverse-RIAA filter, amp?
 [ ] How to pack – Pelican case?
-[ ] Fuse and fuse holder b/w audio in and cutter head
+[X] Fuse and fuse holder b/w audio in and cutter head
 [ ] Vacuum system
 [ ] Heated stylus?
 [ ] Order more styli?
 
 
 ONCE PLACE IS SECURED
-[ ] Full rendering
-[ ] Furniture layout, BOM
-[ ] Design/cut vinyl lettering
+[-] Full rendering
+[-] Furniture layout, BOM
 
 
