@@ -38,7 +38,7 @@ import uuid 					# for creating salt
 
 
 # user-specified options
-generator = 			'threefish'						# which to use?
+generator = 			'congruential'					# which to use?
 email_address = 		'mail@jeffreythompson.org'		# needed to send download link
 pre_chosen_salt = 		None 							# user-specified salt
 salt_it = 				True							# randomly salt the noise?
