@@ -67,7 +67,7 @@ def ent_test(input_file):
 
 	entropy = (float(re.findall('Entropy = (.*?) bits', result)[0]) / 8) * 100.0
 	total_samples = int(re.findall('distribution for (.*?) samples', result)[0])
-	chi_square = float(re.findall('would exceed this value (.*?) percent', result)[0])
+	chi_square = float(re.findall('would exceed this value less than (.*?) percent', result)[0])
 	mean = float(re.findall('value of data bytes is (.*?) \(', result)[0])
 	monte_carlo_pi = float(re.findall('error (.*?) percent', result)[0])
 	serial_correlation = abs(float(re.findall('correlation coefficient is (.*?) \(', result)[0]))
