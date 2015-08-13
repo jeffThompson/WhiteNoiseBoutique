@@ -520,6 +520,48 @@ http://csrc.nist.gov/groups/ST/toolkit/random_number.html
 
 - - - - - - - - -
 
+"How To Safely Store a Password"
+codahale.com/how-to-safely-store-a-password/
+
+- sha, md5, etc for testing integrity of data, not storing pws
+- salting probably doesn't help, since supercomputers can crack pws so fast that rainbow tables are not necessary
+- CUDA/OpenCL parallel cracking can test all ≤7-char pws in 2 sec; you can rent this hw for $4/hr
+
+- - - - - - - - -
+
+"How To Securely Hash Passwords"
+security.stackexchange.com/questions/211/how-to-securely-hash-passwords
+
+- PBKDF2 good hash funct
+	- endorsed by NIST, around a long time and still ok
+	- super configurable
+	- user-input salt
+	- variable output size
+- bcrypt based on Blowfish block cipher
+	- less config
+	- resiliant to GPU parallel attacks, but can be optimized with FPGA
+	- output size fixed at 192 bits
+	- can't handle long inputs; first hash with SHA, then use bcrypt
+		- combining is known to be crypto dangerous and not suggested
+- scrypt also good
+	- invented 2009, so still new until after 5 yrs
+	- requires lots of RAM, make it hard for GPU
+	- can tune memory size when processing
+- Key Derivation Function (KDF) = good enough to hash pw
+	- 100 bits or more is good enough
+	- NIST approves PBKDF2 and scrypt for KDF
+- salt should be 16 bytes or so, no need for longer
+	- UUID4 should be dev/random or similar, so ok
+
+- - - - - - - - -
+
+"How HotBits Works"
+https://www.fourmilab.ch/hotbits/how3.html
+
+Nice post on radioactive RNGs.
+
+- - - - - - - - -
+
 "The Generation of Random Variates"
 Thomas G Newman + Patrick L Odell
 1971
