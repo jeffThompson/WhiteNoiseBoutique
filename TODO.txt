@@ -119,7 +119,6 @@ SOFTWARE
 
 
 LATHE
-[ ] Install/test cutter head
 [ ] Test cuts
 [ ] New leadscrew?
 [ ] Flatten platter?
@@ -132,5 +131,4 @@ LATHE
 ONCE PLACE IS SECURED
 [-] Full rendering
 [-] Furniture layout, BOM
-
 
