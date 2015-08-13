@@ -18,7 +18,6 @@ app.config.update(dict(
 app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
 
-
 # DATABASE FUNCTIONS
 
 # connect to database

@@ -1,0 +1,14 @@
+
+<!doctype html>
+<title>Stream to HTML</title>
+<meta charset="UTF-8">
+
+
+<iframe src="{{ url_for('console-test') }}" id="console"></iframe>
+
+<script>
+window.setInterval('reloadFrame();', 1000);
+function reloadFrame() {
+	document.getElementById('console').contentWindow.location.reload();
+}
+</script>

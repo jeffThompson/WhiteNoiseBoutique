@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+<head>
+	<title>White Noise Boutique</title>
+
+	<!-- STYLES and FONTS -->
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet.css') }}">
+	<link href='http://fonts.googleapis.com/css?family=Crimson+Text:300,300italic' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/png" href="http://www.jeffreythompson.org/graphics/favicon.png">
+
+	<!-- (helps with column-breaks) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$("#console").text("{{ data }}");
+	}
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<!-- HEADER -->
+		<header>
+			<img id="logo" src="static/Logo_web.jpg">
+			<h1>NOISE GENERATOR</h1>
+			<p><em>A pop-up store dedicated to producing the finest quality white noise, cut to unique vinyl records.</em></p>
+		</header>
+
+
+		<!-- INPUT FORM -->
+		<section class="details">
+			{% block index %}{% endblock %}
+		</section> <!-- end form -->
+
+
+		<!-- CONSOLE -->
+		<section class="details" id="console">
+			{% block console %}{% endblock %}
+		</section> <!-- end console -->
+
+
+		<!-- FOOTER -->
+		<footer id="about">
+			<ul>
+				<li>A project by <a href="http://www.jeffrethompson.org">Jeff Thompson</a></li>
+				<li>Commissioned by <a href="http://brightondigitalfestival.co.uk/">Brighton Digital Festival</a></li>
+				<li><a href="https://github.com/jeffThompson/WhiteNoiseBoutique">Source code &amp; hardware</a></li>
+				<li>Est. 2015</li>
+			</ul>
+		</footer>
+
+	</div> <!-- end wrapper -->
+
+<!-- nice smart quotes, via: http://smartquotesjs.com -->
+<script src="static/smartquotes.min.js"></script>
+
+</body>
+</html>
+

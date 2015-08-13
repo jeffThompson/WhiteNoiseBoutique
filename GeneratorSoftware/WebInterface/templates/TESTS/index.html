@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% block index %}
+	<form method="post">
+		<p><span class="inputDesc">seed</span>
+		<input type=text size=30 name=seed>
+		</p>
+
+		<p><span class="inputDesc">generator</span>
+		<input type=text size=30 name=generator>
+		</p>
+
+		<p><span class="inputDesc">pre-chosen salt</span>
+		<input type=text size=30 name=pre_chosen_salt>
+		</p>
+
+		<p><span class="inputDesc">email address</span>
+		<input type=text size=30 name=email_address>
+		</p>
+
+		<p><span class="inputDesc">salt?</span>
+		<input type=checkbox name=salt_it checked>
+		</p>
+
+		<p><span class="inputDesc">email salt?</span>
+		<input type=checkbox name=email_salt>
+		</p>
+
+		<p><span class="inputDesc">store hash?</span>
+		<input type=checkbox name=store_hash checked>
+		</p>
+
+		<p><span class="inputDesc">upload?</span>
+		<input type=checkbox name=upload checked>
+		</p>
+
+		<input type=submit value=GENERATE>
+	</form>
+{% endblock %}
+
