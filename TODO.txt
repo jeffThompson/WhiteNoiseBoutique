@@ -12,27 +12,23 @@
 QUESTIONS
 [ ] Paint/clean place – super dirty and in bad shape for $
 	- I'll do, borrow rollers
-[X] Delivery address for shipping
-	- waiting to see if necessary
-[ ] Actual rent with util, etc
-	- 48GBP per day
 [ ] Wifi in store? Need for credic card processing, uploading, etc
 	- Laurence look into; is there a portable travel option?
 	- 800MB from AT&T = $120
 [ ] Donate furn when done?
 	- several options, might use for next project
-[ ] Musicians for events?
-	- 3 sentence brief of what I'm looking for
-	- should pay expenses at least
 [ ] VAT? Business license?
 	- Laurence looking into, probably ok without
-[X] Cancel 16 Sept event, merge into 2
+[-] Delivery address for shipping
+	- waiting to see if necessary
+[X] Musicians for events?
+	"I'm an artist based in the NYC area, opening a pop-up shop in Brighton this fall dedicated to selling boutique white noise as part of the Brighton Digital Festival. I'd like to have 1-2 live performances by experimental/noise musicians who use white noise or randomness in their practice to perform at the opening reception on Friday, 11 September. My project budget is unfortunately somewhat limited, but I will happily pay travel and libations, plus a great crowd. If interested (or if you know someone who might be a good fit), please email me at mail@jeffreythompson.org with a URL or samples."
+	- 3 sentence brief of what I'm looking for
+	- should pay expenses at least
 
 
 TRAVEL ARRANGMENTS
 [ ] Train ticket
-[X] Airbnb
-[X]	Plane ticket
 
 
 PACKING
@@ -59,46 +55,36 @@ BORROW
 
 WEBSITE
 [ ] Proof for typos (again)
-[X] Design
-[X] FAQ
-[X] Test
-[X] Launch
-[X] Analytics
 
 
 PROMO
 [ ] Advert on social media
 [ ] Reach out to reporters worked with in the past?
+	- compile list
 [ ] FB events for opening, etc
+	- properly sized image
 
 
 ORDER
+[ ] Case for Inverse-RIAA filter
+	- ID = 2 x 2 x .75"8
 [ ]	Dice cup
 [ ] Pelican case for lathe
 [ ] Amplifier or plan for Fender amp
-[X] Faraday cage materials
-[X] Record jackets
 [ ] Vinyl blanks
-[X] Power adapters
-[ ] iPad?
-[ ] Center labels
-[ ] Media player?
 [ ] Audio interface? Borrow from music?
-[X] Cutting head
-[X] VOID stickers
-[X] Hardware RNGs
 
 
 MAKE
-[ ] Label placement jig
-[ ] Hole cutting jig for center hole
+[ ] Center label placement jig
+[ ] Hole cutting jig for center hole, overall dia
 [ ] Cases for hardware parts, etc
-[ ] USB out for 1390
 [ ] Case for USB RNG
-[ ] Top for dice tray?
 
 
 DESIGN
+[ ] Print new versions of everything
+	- how do they look?
 [ ] "Menu" of seeds and generators
 [ ] Final labels
 [ ] Vinyl lettering for window
@@ -108,7 +94,6 @@ DESIGN
 [ ] Insert for each record with info?
 [ ] Center label
 [ ] Video for TV
-[X] Serial labels ready for printing
 
 
 PRINT
@@ -120,21 +105,28 @@ PRINT
 
 SOFTWARE
 [ ] HTML interface
+	- seed
+	- generator
+	- pre-chosen salt
+	- email address
+	- salt?
+	- email salt?
+	- store hash?
+	- upload?
+	- somehow show progress in browser?
 [ ] Automate getting digits from online services?
+[ ] TrueRNG interface
 
 
 LATHE
 [ ] Install/test cutter head
 [ ] Test cuts
-[X] Plate for power, audio in and tonearm out (plastic, lasercut)
 [ ] New leadscrew?
 [ ] Flatten platter?
 [ ] Install inverse-RIAA filter, amp?
 [ ] How to pack – Pelican case?
-[X] Fuse and fuse holder b/w audio in and cutter head
 [ ] Vacuum system
 [ ] Heated stylus?
-[ ] Order more styli?
 
 
 ONCE PLACE IS SECURED
