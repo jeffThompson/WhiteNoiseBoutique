@@ -10,8 +10,11 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 int serial =      0;
 int padding =     8;
 int numPages =    12;
+
 float[] xCoords = { 230.464, 455.464 };
-float[] yCoords = { 67, 148, 229, 310, 391, 472, 553, 639, 715 };
+float[] yCoords = { 67, 148, 229, 310, 391, 472, 553, 634, 715 };
+int xFudge =      52;
+int yFudge =      9;
 
 PGraphics pdf;
 PGraphicsPDF pdfOutput;
@@ -37,7 +40,7 @@ void setup() {
     println("- " + (page+1) + "/" + numPages);
     for (int x=0; x<xCoords.length; x++) {
       for (int y=0; y<yCoords.length; y++) {
-        pdf.text(nf(serial, padding), xCoords[x], yCoords[y]);
+        pdf.text(nf(serial, padding), xCoords[x] + xFudge, yCoords[y] + yFudge);
         serial += 1;
       }
     }
