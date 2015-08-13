@@ -6,11 +6,10 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 Interface for generating boutique white noise.
 
 TODO
-- email table with link to file as wav, txt, etc?
 - web interface with Flask
 
 PROCESS
-(not many of these items can be skipped if specified)
+(many of these items can be skipped if specified)
 1.  generate noise using either:
 		1a. built-in RNG, or
 		1b. input from hardware RNG
@@ -22,7 +21,7 @@ PROCESS
 7.  dieharder tests
 8.  write to audio file
 9.  upload to server
-10.  email link
+10. email link
 11. securely delete file
 
 Generously supported by a commission from Brighton Digital Festival.
@@ -44,7 +43,7 @@ pre_chosen_salt = 		None 							# user-specified salt
 salt_it = 				True							# randomly salt the noise?
 email_salt = 			True
 store_hash = 			True							# store the resulting hash?
-upload_to_server = 		True							# upload noise for download?
+upload_to_server = 		False							# upload noise for download?
 delete_noise_file = 	True							# securely delete noise file when done?
 noise_len = 			10 * 44100						# duration in sec * sample rate
 seed = 					None							# seed value (or None) - doesn't work with all gens
@@ -132,6 +131,7 @@ if store_hash:
 
 
 # run tests on noise file
+'''
 print '\n' + 'running ENT tests...'
 stats.extend( ent_test(noise_byte_file) )
 
@@ -139,7 +139,7 @@ stats.extend( ent_test(noise_byte_file) )
 print '\n' + 'running DIEHARDER tests (may take a while)...'
 for test in dieharder_tests:
 	stats.extend( run_dieharder(noise_dieharder_file, test) )
-
+'''
 
 # write wav file!
 print '\n' + 'writing audio file...'
@@ -147,18 +147,16 @@ audio_filename = 'AudioFiles/' + md5 + '.wav'
 write_wav(noise, audio_filename)
 
 
-# upload to server
+# upload to server and email
 if upload_to_server:
 	print '\n' + 'uploading audio file to server...'
 	upload(audio_filename, 'noise/' + md5 + '.wav')
 
-
-# email
-print '\n' + 'sending email...'
-if email_salt:
-	send_email(email_address, 'http://www.whitenoiseboutique.com/noise/' + md5 + '.wav', stats, salt)
-else:
-	send_email(email_address, 'http://www.whitenoiseboutique.com/noise/' + md5 + '.wav', stats, None)
+	print '\n' + 'sending email...'
+	if email_salt:
+		send_email(email_address, 'http://www.whitenoiseboutique.com/noise/' + md5 + '.wav', stats, salt)
+	else:
+		send_email(email_address, 'http://www.whitenoiseboutique.com/noise/' + md5 + '.wav', stats, None)
 
 
 # delete noise file (we only keep the hash)
