@@ -10,7 +10,7 @@ chunk_size = 		1024
 bit_depth = 		pyaudio.paInt16
 
 
-print 'recording audio...'
+yield 'recording audio...'
 p = pyaudio.PyAudio()
 stream = p.open(format=bit_depth, channels=channels, rate=sample_rate, input=True, frames_per_buffer=chunk_size)
 frames = []
@@ -22,11 +22,11 @@ for i in range(0, int(sample_rate / chunk_size * rec_seconds)):
 		# frames.append(short)
 	frames.append(block)
 
-print '- done recording'
-print '- closing stream'
+yield '- done recording'
+yield '- closing stream'
 stream.stop_stream()
 stream.close()
-print '- shutting down audio connection'
+yield '- shutting down audio connection'
 p.terminate()
 
 
@@ -44,12 +44,12 @@ for block in frames:
 		n = sample * (1/32767.0)	# normalize
 		sum_squares += n*n
 	rms = math.sqrt(sum_squares / len(block)/2)
-	print rms
+	yield rms
 
 
-# print frames
-# print min(frames)
-# print max(frames)
+# yield frames
+# yield min(frames)
+# yield max(frames)
 
 
 

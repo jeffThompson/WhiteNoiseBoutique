@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>TEST</title>
+    <title>White Noise Generator</title>
 
     <!-- STYLES and FONTS -->
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet.css') }}">
@@ -64,9 +64,19 @@
                 var messages = xhr.responseText.split('\n');
                 messages.slice(position, -1).forEach(function(value) {
                     var c = $('#console');
-                    console.log(value);
+                    // console.log(value);
                     if (value.length > 0) {
-                        c.append(value + '<br>');
+                        if ($('#console').html() == '<span class="prompt">&gt;&gt;</span>') {
+                            c.append(' ' + value + '<br>');
+                        }
+                        else {
+                            if (value.lastIndexOf('- ', 0) === 0) {
+                                c.append('&nbsp;&nbsp; '+ value + '<br>');
+                            }
+                            else {
+                                c.append('<span class="prompt">&gt;&gt;</span> '+ value + '<br>');
+                            }
+                        }
                     }
 
                     // scroll to bottom of console
@@ -86,29 +96,20 @@
         <header>
             <img id="logo" src="static/Logo_web.jpg">
             <h1>NOISE GENERATOR</h1>
-            <p><em>A pop-up store dedicated to producing the finest quality white noise, cut to unique vinyl records.</em></p>
         </header>
 
 
         <!-- INPUT FORM -->
         <section class="two_col">
             <form id="settings" method="POST" action='#'>
-                <p><span class="inputDesc">seed</span><input type=text size=30 name=seed></p>
-
+                <p><span class="inputDesc">seed</span><input type=password size=30 name=seed></p>
                 <p><span class="inputDesc">generator</span><input type=text size=30 name=generator></p>
-
-                <p><span class="inputDesc">pre-chosen salt</span><input type=text size=30 name=pre_chosen_salt></p>
-
-                <p><span class="inputDesc">email address</span><input type=text size=30 name=email_address></p>
-
+                <p><span class="inputDesc">pre-chosen salt</span><input type=password size=30 name=pre_chosen_salt></p>
+                <p><span class="inputDesc">email address</span><input type=email size=30 name=email_address></p>
                 <p><span class="inputDesc">salt?</span><input type=checkbox name=salt_it checked></p>
-
                 <p><span class="inputDesc">email salt?</span><input type=checkbox name=email_salt></p>
-
                 <p><span class="inputDesc">store hash?</span><input type=checkbox name=store_hash checked></p>
-
                 <p><span class="inputDesc">upload?</span><input type=checkbox name=upload checked></p>
-
                 <p><input type="submit" value="GENERATE"></p>
             </form>
         </section> <!-- end input form -->
@@ -117,18 +118,14 @@
         <!-- CONSOLE -->
         <section>
             <h2>CONSOLE</h2>
-            <div id="console">
-            </div>
+            <div id="console"><span class="prompt">&gt;&gt;</span></div>
         </section> <!-- end console -->
 
 
         <!-- FOOTER -->
         <footer id="about">
             <ul>
-                <li>A project by <a href="http://www.jeffrethompson.org">Jeff Thompson</a></li>
-                <li>Commissioned by <a href="http://brightondigitalfestival.co.uk/">Brighton Digital Festival</a></li>
-                <li><a href="https://github.com/jeffThompson/WhiteNoiseBoutique">Source code &amp; hardware</a></li>
-                <li>Est. 2015</li>
+                <li><a href="http://www.whitenoiseboutique.com">whitenoiseboutique.com</a></li>
             </ul>
         </footer>
 

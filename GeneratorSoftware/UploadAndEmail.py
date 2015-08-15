@@ -18,14 +18,14 @@ email_pw = email_settings['password']
 def upload(input_file, upload_file):
 	"""Upload text or binary file to server."""
 
-	print '- connecting...'
+	yield '- connecting...'
 	ftp = ftplib.FTP(address)
 	ftp.login(username, password)
 	ftp.cwd('whitenoiseboutique')
 
 	total_size = os.path.getsize(input_file)
 
-	# print '- uploading (' + str(total_size / 1024.0) + ' kb)...'
+	# yield '- uploading (' + str(total_size / 1024.0) + ' kb)...'
 	ext = os.path.splitext(input_file)[1]
 	if ext in ('.txt', '.html'):
 		ftp.storlines('STOR ' + upload_file, open(input_file))
@@ -33,7 +33,7 @@ def upload(input_file, upload_file):
 		upload_progress = UploadProgress(int(total_size))
 		ftp.storbinary('STOR ' + upload_file, open(input_file, 'rb'), 1024, upload_progress.handle)
 
-	print '- closing connection...'
+	yield '- closing connection...'
 	ftp.quit()
 
 
@@ -58,7 +58,7 @@ class UploadProgress:
 					sys.stdout.write(' 50% ')
 				elif percent_complete >= 100:
 					sys.stdout.flush()
-					print ' 100%'
+					yield ' 100%'
 				else:
 					sys.stdout.write('>')
 
@@ -135,15 +135,15 @@ def send_email(receiver, url, stats, salt):
 	msg.attach(MIMEText(html, 'html'))
 
 	# connect to server
-	print '- connecting to server...'
+	yield '- connecting to server...'
 	conn = SMTP(email_server)
 	conn.set_debuglevel(False)
 	conn.login(email_addr, email_pw)
 
 	# and send it!
-	print '- sending...'
+	yield '- sending...'
 	try:
 		conn.sendmail(email_addr, receiver, msg.as_string())
 	except Exception, e:
-		print e
+		yield e
 
