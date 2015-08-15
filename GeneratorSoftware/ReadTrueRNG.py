@@ -13,13 +13,13 @@ def list_ports():
 	return ports
 
 ports = list_ports()
-print ports
+yield ports
 
 
 ser = serial.Serial(port=ports[2], baudrate=9600, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE, bytesize=serial.EIGHTBITS, timeout=0)
 
 for i in range(10):
-	print ser.read(8)
+	yield ser.read(8)
 
 ser.close()
 
