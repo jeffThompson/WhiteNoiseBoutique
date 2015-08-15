@@ -9,6 +9,16 @@
     //       ///////         ///////     ///////   //
 
 
+TOP PRIORITY
+[ ] Good quality lathe cuts
+[ ] Prep blanks
+[ ] Store rendering
+[ ] Furniture design, BOM
+[ ] Order Pelican case/suitcase, if necessary
+[ ] Speaker for shop? Needed for listening, playing tunes
+[ ] Generator software
+
+
 QUESTIONS
 [ ] Paint/clean place – super dirty and in bad shape for $
 	- I'll do, borrow rollers
@@ -28,7 +38,8 @@ QUESTIONS
 
 
 TRAVEL ARRANGMENTS
-[ ] Train ticket
+[ ] Find/print travel details
+[ ] Book car to Brighton?
 
 
 PACKING
@@ -39,6 +50,8 @@ PACKING
 	- tape
 	- driver bits (phillips, square?)
 	- combo square
+	- pencils
+	- knife
 [ ] Box for stuff, padding material
 [ ] Shipping quote
 [ ] Get delivery address
@@ -72,63 +85,69 @@ ORDER
 [ ] Pelican case for lathe
 [ ] Amplifier or plan for Fender amp
 [ ] Vinyl blanks
-[ ] Audio interface? Borrow from music?
 
 
-MAKE
+BUILD
+[ ] Faraday cage
+	- decide frame materials
+	- approx 12 x 12 x 36"
+	- easily collapsible - like softbox or tent?
 [ ] Center label placement jig
 [ ] Hole cutting jig for center hole, overall dia
-[ ] Cases for hardware parts, etc
 [ ] Case for USB RNG
+[ ] Mod bingo cage?
 
 
 DESIGN
-[ ] Print new versions of everything
-	- how do they look?
 [ ] "Menu" of seeds and generators
-[ ] Final labels
+[ ] Center labels
+[ ] Info labels
 [ ] Vinyl lettering for window
 	- vinyl for wall as well? instructions/menu?
 	- BDF logo & Arts Council of England for site and vinyl
 		- Laurence will find BDF logo, download ACE
-[ ] Insert for each record with info?
-[ ] Center label
 [ ] Video for TV
 
 
 PRINT
 [ ] Checklist labels
-[ ] Serial # labels
 [ ] Center labels
 [ ] "Menus"
 
 
 SOFTWARE
-[ ] HTML interface
-	- seed
-	- generator
-	- pre-chosen salt
-	- email address
-	- salt?
-	- email salt?
-	- store hash?
-	- upload?
-	- somehow show progress in browser?
-[ ] Automate getting digits from online services?
+[ ] Finish HTML interface
+	- how to reset? just refresh?
+	- download local version of jquery, Crimson Text, socketio
+[ ] Software/interface for recording!
+	- make in Max?
+	- load file (drag and drop would be nice)
+	- level
+	- anti-RIAA?
 [ ] TrueRNG interface
 
 
 LATHE
 [ ] Test cuts
+	- depth, etc
+	- try overhead trans?
+	- otherwise, ORDER blank material!
 [ ] New leadscrew?
 [ ] Flatten platter?
 [ ] Install inverse-RIAA filter, amp?
+[ ] Test and install VU meter
 [ ] How to pack – Pelican case?
 [ ] Vacuum system
+	- tiny hole to prevent implosion!
 [ ] Heated stylus?
 
 
 ONCE PLACE IS SECURED
 [-] Full rendering
 [-] Furniture layout, BOM
+
+
+WHEN TIME ALLOWS
+[ ] Bibliography of noise texts, put on website
+[ ] PCB version of VU meter circuit, put online
 
