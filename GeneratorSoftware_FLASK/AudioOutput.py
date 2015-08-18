@@ -19,19 +19,19 @@ def write_wav(samples, output_filename):
 	buffer_size = 	2048
 
 	# create file
-	print '- creating wav file...'
+	yield '- creating wav file...'
 	w = wave.open(output_filename, 'w')
 	w.setparams((num_channels, sample_width, frame_rate, num_frames, 'NONE', 'not compressed'))
 
 	# convert from byte to integer in range -32767 to 32767 in proper format
-	print '- formatting samples...'
+	yield '- formatting samples...'
 	output_samples = b''
 	for sample in samples:
 		sample = int(scale(sample, 0,256, -32767, 32767))
 		output_samples += pack('h', sample)
 
 	# and save to file
-	print '- writing samples to file...'
+	yield '- writing samples to file...'
 	w.writeframes(output_samples)
 	w.close()
 

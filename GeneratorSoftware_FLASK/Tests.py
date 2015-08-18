@@ -41,7 +41,7 @@ def pad(s, l):
 	s = str(s)
 	if l < len(s):
 		return s
-	return s + (' ' * (l-len(s)))
+	return s + ('&nbsp;' * (l-len(s)))
 
 
 def ent_test(input_file):
@@ -65,68 +65,72 @@ def ent_test(input_file):
 	p = Popen(command, stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	result, err = p.communicate()
 
+	print result
+
 	entropy = (float(re.findall('Entropy = (.*?) bits', result)[0]) / 8) * 100.0
 	total_samples = int(re.findall('distribution for (.*?) samples', result)[0])
-	chi_square = float(re.findall('would exceed this value(?: less than)? (.*?) percent', result)[0])
+	# chi_square = float(re.findall('would exceed this value( less than)? (.*?) percent', result)[1])
+	chi_square = float(re.findall('would exceed this value less than (.*?) percent', result)[0])
 	mean = float(re.findall('value of data bytes is (.*?) \(', result)[0])
 	monte_carlo_pi = float(re.findall('error (.*?) percent', result)[0])
 	serial_correlation = abs(float(re.findall('correlation coefficient is (.*?) \(', result)[0]))
 
 	stats = []
+	printable_stats = ''
 
-	print pad('- entropy (100%)', label_padding) +  pad(str(entropy) + '%', value_padding),
+	printable_stats += pad('- entropy (100%)', label_padding) +  pad(str(entropy) + '%', value_padding)
 	if entropy > 90:
-		print 'PASSED'
+		printable_stats += 'PASSED\n'
 		stats.append(['entropy', entropy, 'PASSED' ])
 	else:
-		print 'FAILED'
+		printable_stats += 'FAILED\n'
 		stats.append(['entropy', entropy, 'FAILED' ])
 
-	print pad('- chi-square (50%)', label_padding) +  pad(str(chi_square) + '%', value_padding),
+	printable_stats += pad('- chi-square (50%)', label_padding) +  pad(str(chi_square) + '%', value_padding)
 	if chi_square > 99 or chi_square < 1:
-		print 'FAILED'
+		printable_stats += 'FAIL\n'
 		stats.append(['chi-square', chi_square, 'FAILED' ])
 	elif chi_square > 95 or chi_square < 5:
-		print 'SUSPECT'
+		printable_stats += 'SUSPECT\n'
 		stats.append(['chi-square', chi_square, 'SUSPECT' ])
 	elif chi_square > 90 or chi_square < 10:
-		print 'ALMOST SUSPECT'
+		printable_stats += 'ALMOST SUSPECT\n'
 		stats.append(['chi-square', chi_square, 'ALMOST SUSPECT' ])
 	else:
-		print 'PASSED'
+		printable_stats += 'PASSED\n'
 		stats.append(['chi-square', chi_square, 'PASSED' ])
 
-	print pad('- arith mean (127.5)', label_padding) +  pad(mean, value_padding),
+	printable_stats += pad('- arith mean (127.5)', label_padding) +  pad(mean, value_padding)
 	if mean > 114.25 and mean < 140.75:
-		print 'PASSED'
+		printable_stats += 'PASSED\n'
 		stats.append(['mean', mean, 'PASSED' ])
 	else:
-		print 'FAILED'
+		printable_stats += 'FAILED\n'
 		stats.append(['mean', mean, 'FAILED' ])
 
-	print pad('- monte-carlo pi (0%)', label_padding) +  pad(str(monte_carlo_pi) + '%', value_padding),
+	printable_stats += pad('- monte-carlo pi (0%)', label_padding) +  pad(str(monte_carlo_pi) + '%', value_padding)
 	if monte_carlo_pi < 2.0:
-		print 'PASSED'
+		printable_stats += 'PASSED\n'
 		stats.append(['monte_carlo_pi', monte_carlo_pi, 'PASSED' ])
 	else:
-		print 'FAILED'
+		printable_stats += 'FAILED\n'
 		stats.append(['monte_carlo_pi', monte_carlo_pi, 'FAILED' ])
 
 	# test values via:
 	# https://www.reddit.com/r/crypto/comments/3drlgl/what_values_constitute_passing_for_ent_tests/ct8xry7
-	print pad('- serial correl (0)', label_padding) +  pad(serial_correlation, value_padding),
+	printable_stats += pad('- serial correl (0)', label_padding) +  pad(serial_correlation, value_padding)
 	n = total_samples
 	m = -1.0 / (n-1)
 	s = math.sqrt((n*n - 3*n)/(n+1)) / (n-1)
 	if serial_correlation > m-2*s and serial_correlation < m+2*s:
-		print 'PASSED'
+		printable_stats += 'PASSED\n'
 		stats.append(['serial_correlation', serial_correlation, 'PASSED' ])
 	else:
-		print 'FAILED'
+		printable_stats += 'FAILED\n'
 		stats.append(['serial_correlation', serial_correlation, 'FAILED' ])
 
 	# done, return stats
-	return stats
+	return stats, printable_stats
 
 
 def run_dieharder(noise_file, test):
@@ -137,6 +141,8 @@ def run_dieharder(noise_file, test):
 	"""
 
 	stats = []
+	printable_stats = ''
+
 	command = [ 'dieharder', '-d', str(test), '-f', noise_file ]
 	p = Popen(command, stdin=PIPE, stdout=PIPE, stderr=PIPE)
 	result, err = p.communicate()
@@ -157,8 +163,8 @@ def run_dieharder(noise_file, test):
 
 		stats.append( [test, value, passing ] )
 
-		print pad('- ' + test, label_padding) + pad(value, value_padding) + passing
+		printable_stats += pad('- ' + test, label_padding) + pad(value, value_padding) + passing + '\n'
 
 	# done, return stats
-	return stats
+	return stats, printable_stats
 

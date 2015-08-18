@@ -64,14 +64,14 @@ def generate():
     def g():
 
         # user-specified options
-        generator =             'threefish'                     # which to use?
+        generator =             'congruential'                  # which to use?
         email_address =         'mail@jeffreythompson.org'      # needed to send download link
         pre_chosen_salt =       None                            # user-specified salt
         salt_it =               True                            # randomly salt the noise?
         email_salt =            True
         store_hash =            True                            # store the resulting hash?
         upload_to_server =      False                           # upload noise for download?
-        delete_noise_file =     True                            # securely delete noise file when done?
+        delete_noise_file =     False                           # securely delete noise file when done?
         noise_len =             10 * 44100                      # duration in sec * sample rate
         seed =                  None                            # seed value (or None) - doesn't work with all gens
 

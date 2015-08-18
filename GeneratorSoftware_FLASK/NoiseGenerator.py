@@ -37,14 +37,14 @@ import uuid 					# for creating salt
 
 
 # user-specified options
-generator = 			'threefish'						# which to use?
+generator = 			'congruential'					# which to use?
 email_address = 		'mail@jeffreythompson.org'		# needed to send download link
 pre_chosen_salt = 		None 							# user-specified salt
 salt_it = 				True							# randomly salt the noise?
 email_salt = 			True
 store_hash = 			True							# store the resulting hash?
 upload_to_server = 		False							# upload noise for download?
-delete_noise_file = 	False							# securely delete noise file when done?
+delete_noise_file = 	True							# securely delete noise file when done?
 noise_len = 			10 * 44100						# duration in sec * sample rate
 seed = 					None							# seed value (or None) - doesn't work with all gens
 
@@ -114,6 +114,7 @@ if salt_it:
 	sha512 = hash_file_sha512(noise_byte_file, salt)
 else:
 	sha512 = hash_file_sha512(noise_byte_file, None)
+
 md5 = hash_file_md5(noise_byte_file, salt)
 
 
@@ -130,11 +131,12 @@ if store_hash:
 
 
 # run tests on noise file
+'''
 print '\n' + 'running ENT tests...'
 stats.extend( ent_test(noise_byte_file) )
 
 
-'''print '\n' + 'running DIEHARDER tests (may take a while)...'
+print '\n' + 'running DIEHARDER tests (may take a while)...'
 for test in dieharder_tests:
 	stats.extend( run_dieharder(noise_dieharder_file, test) )
 '''

@@ -1,0 +1,142 @@
+<html>
+<head>
+    <title>White Noise Generator</title>
+
+    <!-- STYLES and FONTS -->
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text:300,300italic' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="http://www.jeffreythompson.org/graphics/favicon.png">
+
+    <!-- (helps with column-breaks) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JS TO SEND FORM, READ PROGRESS -->
+    <script src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // setup variables
+            consoleUpdateInterval = 500;
+
+            // create socket
+            namespace = '';
+            var socket = io.connect('http://' + document.domain + ':' + location.port + namespace);
+
+            // send generator settings, start polling console
+            $('#settings').submit(function(event) {
+                poll = true;
+                var data = {
+                    'seed':             $('#seed').val(),
+                    'generator':        $('#generator').val(),
+                    'pre_chosen_salt':  $('#pre_chosen_salt').val(),
+                    'email_address':    $('#email_address').val(),
+                    'salt_it':          $('#salt_it').val(),
+                    'email_salt':       $('#email_salt').val(),
+                    'store_hash':       $('#store_hash').val(),
+                    'upload':           $('#upload').val()
+                };
+                socket.emit('generate', data);
+
+                // get new data using timer
+                var timer;
+                timer = setInterval(function() {
+                    handleNewData();
+
+                    // stop checking once the response has ended
+                    if (xhr.readyState == XMLHttpRequest.DONE) {
+                        clearInterval(timer);
+                    }
+                }, consoleUpdateInterval);
+                return false;
+            });
+
+            // update console using XMLHttRequest
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', "{{ url_for('generate') }}");
+            xhr.send();
+            var position = 0;
+
+            // receive data
+            // note: gets all past messages + newline at the end,
+            // so extract only most recent
+            function handleNewData() {
+                var messages = xhr.responseText.split('\n');
+                messages.slice(position, -1).forEach(function(value) {
+                    var c = $('#console');
+                    // console.log(value);
+                    if (value.length > 0) {
+                        if ($('#console').html() == '<span class="prompt">&gt;&gt;</span>') {
+                            c.append(' ' + value + '<br>');
+                        }
+                        else {
+                            if (value.lastIndexOf('- ', 0) === 0) {
+                                c.append('&nbsp;&nbsp; '+ value + '<br>');
+                            }
+                            else {
+                                c.append('<span class="prompt">&gt;&gt;</span> '+ value + '<br>');
+                            }
+                        }
+                    }
+
+                    // scroll to bottom of console
+                    var height = c[0].scrollHeight;
+                    c.scrollTop(height);
+                });
+                position = messages.length - 1;
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!-- HEADER -->
+        <header>
+            <img id="logo" src="static/Logo_web.jpg">
+            <h1>NOISE GENERATOR</h1>
+        </header>
+
+
+        <!-- INPUT FORM -->
+        <section class="two_col">
+            <form id="settings" method="POST" action='#'>
+                <p><span class="inputDesc">seed</span><input type=password size=30 name=seed></p>
+                <p><span class="inputDesc">generator</span><input type=text size=30 name=generator></p>
+                <p><span class="inputDesc">pre-chosen salt</span><input type=password size=30 name=pre_chosen_salt></p>
+                <p><span class="inputDesc">email address</span><input type=email size=30 name=email_address></p>
+                <p><span class="inputDesc">salt?</span><input type=checkbox name=salt_it checked></p>
+                <p><span class="inputDesc">email salt?</span><input type=checkbox name=email_salt></p>
+                <p><span class="inputDesc">store hash?</span><input type=checkbox name=store_hash checked></p>
+                <p><span class="inputDesc">upload?</span><input type=checkbox name=upload checked></p>
+                <p><input type="submit" value="GENERATE"></p>
+            </form>
+        </section> <!-- end input form -->
+
+
+        <!-- CONSOLE -->
+        <section>
+            <h2>CONSOLE</h2>
+            <div id="console"><span class="prompt">&gt;&gt;</span></div>
+        </section> <!-- end console -->
+
+
+        <!-- FOOTER -->
+        <footer id="about">
+            <ul>
+                <li><a href="http://www.whitenoiseboutique.com">whitenoiseboutique.com</a></li>
+            </ul>
+        </footer>
+
+    </div> <!-- end wrapper -->
+
+
+    <!-- nice smart quotes, via: http://smartquotesjs.com -->
+    <script src="static/smartquotes.min.js"></script>
+
+</body>
+</html>
+
+
+
