@@ -10,6 +10,9 @@
 
 
 TOP PRIORITY
+[ ] List of press contacts, send email
+[ ] Place lumber order
+	- 8 sheets at 1/2 x 48 x 96"
 [ ] Good quality lathe cuts
 [ ] Prep blanks
 [ ] Store rendering
@@ -20,6 +23,11 @@ TOP PRIORITY
 
 
 QUESTIONS
+[ ] Stools? (2x)
+[ ] TV dimensions
+
+
+QUESTIONS SOMEWHAT ANSWERED
 [ ] Paint/clean place – super dirty and in bad shape for $
 	- I'll do, borrow rollers
 [ ] Wifi in store? Need for credic card processing, uploading, etc
@@ -52,6 +60,7 @@ PACKING
 	- combo square
 	- pencils
 	- knife
+	- anchors for shelves
 [ ] Box for stuff, padding material
 [ ] Shipping quote
 [ ] Get delivery address
@@ -79,6 +88,7 @@ PROMO
 
 
 ORDER
+[ ] 110/220V >> 12V transformer (for 10W amp)
 [ ] Case for Inverse-RIAA filter
 	- ID = 2 x 2 x .75"8
 [ ]	Dice cup
@@ -107,6 +117,7 @@ DESIGN
 	- BDF logo & Arts Council of England for site and vinyl
 		- Laurence will find BDF logo, download ACE
 [ ] Video for TV
+[ ] Download link card for pre-generated noise
 
 
 PRINT
@@ -130,24 +141,25 @@ SOFTWARE
 LATHE
 [ ] Test cuts
 	- depth, etc
-	- try overhead trans?
 	- otherwise, ORDER blank material!
+	- cheatsheet for settings?s
 [ ] New leadscrew?
 [ ] Flatten platter?
-[ ] Install inverse-RIAA filter, amp?
-[ ] Test and install VU meter
+[ ] Case up amp, VU, inverse-RIAA, etc
 [ ] How to pack – Pelican case?
 [ ] Vacuum system
 	- tiny hole to prevent implosion!
 [ ] Heated stylus?
 
 
-ONCE PLACE IS SECURED
-[-] Full rendering
-[-] Furniture layout, BOM
-
-
 WHEN TIME ALLOWS
 [ ] Bibliography of noise texts, put on website
+	- Noise, Water, Meat
+	- Art of Noise
+	- Applied Cryptography
+	- One Million Random Digits
+	- Karl Pearson texts
+	- Wellerstein's article on RNG?
+	- everything from my reading notes
 [ ] PCB version of VU meter circuit, put online
 
