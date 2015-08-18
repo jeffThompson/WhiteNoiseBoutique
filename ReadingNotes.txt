@@ -562,6 +562,78 @@ Nice post on radioactive RNGs.
 
 - - - - - - - - -
 
+"Analysis of an On-line Random Number Generator"
+Distributed Systems Group, Comp Sci Dept, Trinity College Dublin
+2001
+
+- congruential RNG probably repeats after 100k digits
+- autocorrelation is the relationship b/w 2 variables over successive time intervals
+- chi-square takes "sum of the squares of observed values minus expected values divided by the expected values"
+- entropy, in this case, is "the measure of a system's energy that is unavailable for work". Varies from 0 to total amount of energy in the system.
+- source for L'Ecuyer's Generator with Bays-Durham Shuffle
+
+- - - - - - - - -
+
+"Cryptonomicon"
+Neal Stephenson
+
+- "When he communicates with Avi, he has to use Ordo, which is a tool for taking his ideas and converting them into sterams of bits that are almost indistiguishable from white noise, so that they can be sent to Avi in privacy. In exchange, it receives noise from Avie and converts it into Avi's thoughts." (p 76)
+- "The numbers have been chosen by secretaries in a basement in Washington by shuffling cards or drawing chits out of a hat. They are pure noise." (p 103)
+- "Why couldn't I fill my hard drive with random bytes, so that individual files would not be discernable? Their very existence would be hidden in the noise, like a striped tiger in the grass. And we could continually stream random noise back and forth to each other." (p 370)
+- Anataeus (mentioned in ref to Turing on p 449) – son of Poseidon and Gaia, sort of halfway between land and sea
+- "We start out with Chaos, which is where all theogonies start, and which I like to think of as a sea of white noise – totally random broadband static."
+- "Lawrence looks through a thick glass window into the engineer's booth, where a phonograph record is playing on the world's most precise and expensive turntable. This is, likewise, the most valuable record ever turned out: it is filled with what is intended to be perfectly random white noise." (p 1080)
+- Bell Lab's "Project X", LP noise
+- "Somewhere in New York, in the bowels of Bell Labs, behind a locked and guarded door stenciled PROJECT X, technicians are turning out more of these tings, the very latest in chart-topping white noise." (p 1081)
+
+- - - - - - - - -
+
+"SIGSALY"
+https://en.wikipedia.org/wiki/SIGSALY
+
+- aka X System, Project X, Ciphony I, Green Hornet
+- used in WWII
+- first trans of speech using PCM
+- nicknamed Green Hornet because of it's buzzing sound
+	- from carrier signal
+- previously, AT&T "A-3" voice scrambler was used
+	- broken by Deutsche Reichspost in fall 41
+- basically a 1-time pad for audio
+- dev by A. B. Clark, assisted by Turing
+- in service from 1943-46
+- voice sampled by vocoder
+	- amplitude encoded values 0-5 every 20ms
+	- noise subracted from that signal mod 6 (0-5)
+- "The noise values for the encryption key were originally produced by large mercury-vapor rectifying vacuum tubes and stored on a phonograph record."
+- only 1 pair of records produced from gold master
+- "The records were played on turntables, but since the timing – the clock synchronization – between the two SIGSALY terminals had to be precise, the turntables were by no means just ordinary record-players. The rotation rate of the turntables was carefully controlled, and the records were started at highly specific times, based on precision time-of-day clock standards."
+- run by 40 tall racks of equipment, weighed over 50 tons and used 30kW of power
+- in total, about 3k convos during WW2
+- first system in England installed in basement of Selfridges dept store on Oxford St, London
+	- https://en.wikipedia.org/wiki/Selfridges,_Oxford_Street
+	- go take a photo?
+
+- - - - - - - - -
+
+"Sigsaly Story"
+Patrick D. Weadon
+https://www.nsa.gov/about/cryptologic_heritage/center_crypt_history/publications/sigsaly_story.shtml
+
+- buzz that eavesdroppers would hear sounded very much like the theme to the Green Hornet radio show
+- necessary for skilled operators
+	- formed 805th Signal Service Company in 42
+	- maintained and operated SIGSALY in DC and abroad
+	- "All personnel were hand-picked for their special talents and qualifications; the group included individuals with extensive backgrounds in electronics and telephony."
+	- classes held in NYC so Bell Labs folks could teach; moved to Pentagon in July 44
+	- 139 officers and men; eventually 356 total people (81 officers and 275 enlisted)
+	- 12 separate detachments, operating 24/7
+- Allied crypto services had two-pronged "provide and protect" strategy
+	- "The NSA/CSS continues to provide and protect vital information, shaping America's history and contributing to the nation's cryptologic heritage." via https://www.nsa.gov/about/faqs/heritage_of_cryptology.shtml
+- installed in DC, London, Algiers, Australia, Hawaii, Oakland CA, Paris, Guam, Frankfurt, Berlin
+	- also on 25-ton ship OL-31 for MacArthur in Pacific
+
+- - - - - - - - -
+
 "The Generation of Random Variates"
 Thomas G Newman + Patrick L Odell
 1971
