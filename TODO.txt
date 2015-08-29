@@ -9,150 +9,136 @@
     //       ///////         ///////     ///////   //
 
 
-TOP PRIORITY
-[ ] List of press contacts, send email
-[ ] Place lumber order
-	- 8 sheets at 1/2 x 48 x 96"
-[ ] Good quality lathe cuts
-[ ] Prep blanks
-[ ] Store rendering
-[ ] Furniture design, BOM
-[ ] Order Pelican case/suitcase, if necessary
-[ ] Speaker for shop? Needed for listening, playing tunes
-[ ] Generator software
+SATURDAY
+[ ] Prices, video on website
+[ ] Syllabi, prep for Chris covering class
+[ ] Finish prepping records
+[ ] Get materials for Faraday cage
+[ ] Binder/report cover for PDFs?
+[ ] Check in with Laurence re loans, wifi, train
 
 
-QUESTIONS
-[ ] Stools? (2x)
-[ ] TV dimensions
+SUNDAY
+[ ] Book from office, pack it
+[ ] Pack blanks for shipping
+[ ] Light on microscope
+[ ] Print notes for interview
+[ ] Bind printouts, pack it
+[ ] Faraday cage
+[ ] Take to FedEx
 
 
-QUESTIONS SOMEWHAT ANSWERED
-[ ] Paint/clean place – super dirty and in bad shape for $
-	- I'll do, borrow rollers
-[ ] Wifi in store? Need for credic card processing, uploading, etc
+SUNDAY/THE WEEK
+[ ] Final lathe adjustments
+[ ] A few more test cuts
+
+
+MONDAY
+[ ] Check in w Airbnb guy
+[ ] Juanita re work study
+[ ] WS posters
+[ ] Debbie re coffee on Wed
+
+
+PERFORMERS
+[X] Reached out to:
+	- David Toop
+	- Benedict Drew (not available)
+	- Patrick Farmer
+[ ] Alt by order of pref:
+	- James Saunders (esp "At Least 100 Devices Being Turned On and Off" – could be done with just silence/noise?)
+	- Ryoko Akama (super minimal, might be nice)
+
+
+QUESTIONS MOSTLY ANSWERED
+[-] Tools to borrow:
+	- drill
+	- circular saw (£35 for 2 days, if rent)
+	- extension cords (white would be great, for the duration)
+	- paint rollers + pole
+	- broom and mop?
+	- glass cleaner
+[-] Getting change for cash, £5 and £10 notes for change + £1 coins
+[-] Wifi in store? Need for credic card processing, uploading, etc
 	- Laurence look into; is there a portable travel option?
 	- 800MB from AT&T = $120
-[ ] Donate furn when done?
+	- http://www.three.co.uk/Discover/Devices/Huawei/E5573_4G_Mobile_Wi-Fi?memory=0&colour=White
+	- http://www.three.co.uk/Discover/Devices/Huawei/E5330_Mobile_Wi-Fi?memory=0&colour=White
+[-] Donate furn when done?
 	- several options, might use for next project
-[ ] VAT? Business license?
-	- Laurence looking into, probably ok without
-[-] Delivery address for shipping
-	- waiting to see if necessary
-[X] Musicians for events?
-	"I'm an artist based in the NYC area, opening a pop-up shop in Brighton this fall dedicated to selling boutique white noise as part of the Brighton Digital Festival. I'd like to have 1-2 live performances by experimental/noise musicians who use white noise or randomness in their practice to perform at the opening reception on Friday, 11 September. My project budget is unfortunately somewhat limited, but I will happily pay travel and libations, plus a great crowd. If interested (or if you know someone who might be a good fit), please email me at mail@jeffreythompson.org with a URL or samples."
-	- 3 sentence brief of what I'm looking for
-	- should pay expenses at least
 
 
 TRAVEL ARRANGMENTS
-[ ] Find/print travel details
-[ ] Book car to Brighton?
+[ ] Find/print travel details, esp train
+
+
+GET LOCALLY
+[ ] Anchors for shelves
 
 
 PACKING
-[ ] Tools to bring:
-	- tape measure
-	- level
-	- vinyl squeegee thing
-	- tape
-	- driver bits (phillips, square?)
-	- combo square
-	- pencils
-	- knife
-	- anchors for shelves
-[ ] Box for stuff, padding material
-[ ] Shipping quote
-[ ] Get delivery address
-[ ] What to ship, what to bring
-
-
-BORROW
-[-] Tools
-	- circular saw and drill
-	- from Fabrica
-[-] TV? with wall mount and player?
-	- from Fabrica w/ player
+[ ] Pack out Pelican case
+	- lathe
+	- turntable
+	- amp/filter
+	- vacuum
+[ ] Pack blanks, ship
 
 
 WEBSITE
+[ ] Add teaser video
 [ ] Proof for typos (again)
 
 
 PROMO
-[ ] Advert on social media
-[ ] Reach out to reporters worked with in the past?
-	- compile list
-[ ] FB events for opening, etc
-	- properly sized image
+[ ] Reach out to other news outlets
+	- Prosthetic Knowl
+	- Creative Applications
+	- Followup with already-emailed folks
+[ ] Create FB events for listening party
 
 
-ORDER
-[ ] 110/220V >> 12V transformer (for 10W amp)
-[ ] Case for Inverse-RIAA filter
-	- ID = 2 x 2 x .75"8
-[ ]	Dice cup
-[ ] Pelican case for lathe
-[ ] Amplifier or plan for Fender amp
-[ ] Vinyl blanks
-
-
-BUILD
+BUILD/MAKE
 [ ] Faraday cage
 	- decide frame materials
 	- approx 12 x 12 x 36"
 	- easily collapsible - like softbox or tent?
-[ ] Center label placement jig
-[ ] Hole cutting jig for center hole, overall dia
-[ ] Case for USB RNG
-[ ] Mod bingo cage?
 
 
 DESIGN
-[ ] "Menu" of seeds and generators
-[ ] Center labels
-[ ] Info labels
-[ ] Vinyl lettering for window
-	- vinyl for wall as well? instructions/menu?
-	- BDF logo & Arts Council of England for site and vinyl
-		- Laurence will find BDF logo, download ACE
-[ ] Video for TV
-[ ] Download link card for pre-generated noise
+[ ] Store rendering
+	- add equipment, chairs in front
+[ ] Vinyl for wall as well? instructions/menu?
+	- flowchart?
+	- back wall?
 
 
-PRINT
-[ ] Checklist labels
-[ ] Center labels
-[ ] "Menus"
-
-
-SOFTWARE
-[ ] Finish HTML interface
-	- how to reset? just refresh?
-	- download local version of jquery, Crimson Text, socketio
-[ ] Software/interface for recording!
-	- make in Max?
-	- load file (drag and drop would be nice)
-	- level
-	- anti-RIAA?
-[ ] TrueRNG interface
+VIDEO TEASER
+[ ] Spectrographs for hardware gens
 
 
 LATHE
+[ ] Vacuum
+	- lower input hose into jar
+	- mesh on output hose in jar
+[ ] Heat lamps?
+[ ] In/out time ruler
+[ ] Prep blanks
 [ ] Test cuts
 	- depth, etc
-	- otherwise, ORDER blank material!
-	- cheatsheet for settings?s
-[ ] New leadscrew?
-[ ] Flatten platter?
-[ ] Case up amp, VU, inverse-RIAA, etc
-[ ] How to pack – Pelican case?
-[ ] Vacuum system
-	- tiny hole to prevent implosion!
+	- cheatsheet for settings?
+[ ] Somekind of better hold-down for blanks
 [ ] Heated stylus?
+	- http://www.steveespinola.com/lathetrolls/resources/Alan_Graves_Hot_Stylus.pdf
+[ ] New leadscrew?
 
 
 WHEN TIME ALLOWS
+[ ] Write up a short essay on randomness
+[ ] Better annotate code, push to Github
+[ ] Speed control for lathe
+[ ] Soundcloud account with noise samples
+	- put on Spotify?
 [ ] Bibliography of noise texts, put on website
 	- Noise, Water, Meat
 	- Art of Noise
@@ -162,4 +148,27 @@ WHEN TIME ALLOWS
 	- Wellerstein's article on RNG?
 	- everything from my reading notes
 [ ] PCB version of VU meter circuit, put online
+[ ] Read this:
+	- http://www.soundonsound.com/sos/jan03/articles/impedanceworkshop.asp
+[ ] Upgrade preamp/filter electronics
+	- http://vinylike.de/index.php/store/products/caruso-preamp-board/
+[ ] Turntable strobe
+	- or make
+	- https://www.tindie.com/products/bot_thoughts/pocket-turntable-strobe/
+[ ] Nice stroboscopic discs
+	- http://keystrobe.com/keystrobe/Buy.html
+
+
+BOOKS TO ORDER OR GET ON ILL
+[ ] Tracts For Computers
+	- https://archive.org/details/33638864/
+[ ] PGP Source Code
+	- https://stevens.on.worldcat.org/oclc/32391677?databaseList=1708,2570,638
+[ ] Encyclopedia of Integer Sequence
+	- www.amazon.com/gp/offer-listing/0125586302/
+[ ] Random Sampling Numbers
+	- https://stevens.on.worldcat.org/oclc/1732420
+	- or buy: www.oldcomputerbooks.com/pages/books/C3273/l-h-c-tippett-e-s-pearson-introd/random-sampling-numbers-tracts-for-computers-no-xv
+[ ] Random Number Generation & Monte Carlo Methods
+	- https://books.google.com/books?id=ERSSDBDcYOIC&hl=en
 
