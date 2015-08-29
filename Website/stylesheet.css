@@ -117,13 +117,62 @@ header {
 }
 
 
+/* VIDEO */
+#video {
+	margin: 		20px 0;
+	border: 		1px solid rgb(220,220,220);
+}
+
+
 /* DETAILS */
 .details {
 	margin: 		50px 0;
 	text-align: 	left;
 }
 .details div {
-	margin-bottom: 50px;
+	margin-bottom: 	50px;
+}
+
+
+/* PRICES */
+#priceContainer {
+	text-align: 			center;
+}
+.price {
+	-webkit-border-radius: 	50%;
+	-moz-border-radius: 	50%;
+	border-radius: 			50%;
+	border: 				4px solid black;
+	width: 					190px;
+	height: 				190px;
+	display: 				inline-block;
+	vertical-align: 		top;
+	margin-bottom: 			0px !important;
+}
+.price:nth-of-type(1) {
+	margin-right:   		20px;
+}
+.price h1, .price h2, .price p {
+	text-align: 			center;
+}
+.price h1 {
+	margin: 				-10px 0 3px 0;
+}
+.price h2 {
+	font-size: 				1.5em;
+}
+.price p {
+	font-size: 				0.8em;
+}
+
+#vinylPrice {
+	margin-bottom: 			20px !important;
+}
+#vinylPrice h2 {
+	margin-top: 			11px;
+}
+#downloadPrice h2 {
+	margin-top: 			25px;
 }
 
 
