@@ -3,6 +3,7 @@ import ftplib, os, sys, re
 from smtplib import SMTP_SSL as SMTP
 from Settings import ftp_settings, email_settings
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 
 
@@ -70,13 +71,13 @@ def send_email(receiver, url, stats, salt):
 	"""
 
 	# header
-	msg = MIMEMultipart('alternative')
+	msg = MIMEMultipart('related')
 	msg['Subject'] = 'Your white noise is ready!'
 	msg['From'] = 'White Noise Boutique <' + email_addr + '>'
 	msg['To'] = receiver
 
 	# text-only version
-	text = "Your white noise has been prepared."
+	# text = "Your white noise has been prepared."
 
 	# html version
 	html = """
@@ -91,12 +92,13 @@ def send_email(receiver, url, stats, salt):
 					background-color: rgb(245,245,245);
 				}
 			</style>
+			<img src="cid:logo">
 			<h3>Your white noise is ready for download!</h3>
-			<p>You selected the generator <strong>""" + stats[0][1] + """</strong> and it has been working hard to produce your white noise: now it's ready! Please use <a href=\"""" + url + """"\">this link to download your file</a> &mdash; it will be deleted after 30 days.</p>"""
+			<p>You selected the generator <strong>""" + stats[0][1] + """</strong> and it has been working hard to produce your white noise: now it's ready! Please use <a href=\"""" + url + """"\">this link to download your file</a> &mdash; it will be deleted after 60 days.</p>"""
 
 
 	if salt != None:
-		html += """<p>The "salt" used in creating your noise's filename: <strong>""" + salt + """</strong>. This can be used to reconstruct your noise's data and should be treated like a secret password, especially if you want to use your noise for cryptographic purposes. Please <a href="http://www.whitenoiseboutique.com/faq">visit the FAQ</a> if you'd like to know more about this.</p>"""
+		html += """<p>The "salt" used in creating your noise's filename: <strong>""" + salt + """</strong>. Please <a href="http://www.whitenoiseboutique.com/faq">visit the FAQ</a> if you'd like to know more about this.</p>"""
 
 	html += """<p>Here are the results of the statistical tests applied to your unique white noise:</p>"""
 
@@ -125,14 +127,23 @@ def send_email(receiver, url, stats, salt):
 			<p>&nbsp;</p>
 			<!-- <p><img src="http://www.whitenoiseboutique.com/images/Brighton-Digital-Festival-200px.jpg"></p> -->
 
-			<p style="color:rgb(150,150,150)"><em>White Noise Boutique is a project by <a href="http://www.jeffreythompson.org">Jeff Thompson</a> and supported by <a href="http://brightondigitalfestival.co.uk/">Brighton Digital Festival</a>. This is the last email you'll receive from us and we won't share your address with anyone.</em></p>
+			<p style="color:rgb(150,150,150)"><em>White Noise Boutique is a project by <a href="http://www.jeffreythompson.org">Jeff Thompson</a> and commissioned by <a href="http://brightondigitalfestival.co.uk/">Brighton Digital Festival</a>. This is the last email you'll receive from us and we won't share your address with anyone.</em></p>
 		</body>
 	</html>
 	"""
 
-	# add text to email
-	msg.attach(MIMEText(text, 'plain'))
+	# load logo image
+	img = open('Logo.jpg', 'rb').read()
+	msgImg = MIMEImage(img, 'jpg')
+	msgImg.add_header('Content-ID', '<logo>')
+	msgImg.add_header('Content-Disposition', 'inline', filename='Logo.jpg')
+
+
+	# attach text and image to email
+	# msg.attach(MIMEText(text, 'plain'))
 	msg.attach(MIMEText(html, 'html'))
+	msg.attach(msgImg)
+
 
 	# connect to server
 	print '- connecting to server...'

@@ -5,9 +5,6 @@ Jeff Thompson | 2015 | www.jeffreythompson.org
 
 Interface for generating boutique white noise.
 
-TODO
-- web interface with Flask
-
 PROCESS
 (many of these items can be skipped if specified)
 1.  generate noise using either:
@@ -28,35 +25,41 @@ Generously supported by a commission from Brighton Digital Festival.
 
 '''
 
-from Generators import *		# file with noise generating functions
-from Tests import *				# file with RNG testing (ent, dieharder)
-from AudioOutput import *
-from UploadAndEmail import *
-from Utilities import *			# file with misc functions (hashing, etc)
-import uuid 					# for creating salt
+from Generators import *			# file with noise generating functions
+from Tests import *					# file with RNG testing (ent, dieharder)
+from AudioInputOutput import *		# audio stuff
+from UploadAndEmail import *		# upload to server, email link
+from Utilities import *				# file with misc functions (hashing, etc)
+import uuid 						# for creating salt
+import bcrypt						# also for salting, hashing (https://github.com/pyca/bcrypt)
+from subprocess import check_call	# for secure delete
 
 
 # user-specified options
-generator = 			'threefish'						# which to use?
-email_address = 		'mail@jeffreythompson.org'		# needed to send download link
-pre_chosen_salt = 		None 							# user-specified salt
-salt_it = 				True							# randomly salt the noise?
-email_salt = 			True
-store_hash = 			True							# store the resulting hash?
-upload_to_server = 		False							# upload noise for download?
-delete_noise_file = 	False							# securely delete noise file when done?
-noise_len = 			10 * 44100						# duration in sec * sample rate
-seed = 					None							# seed value (or None) - doesn't work with all gens
+generator = 			'congruential'
+email_address = 		'mail@jeffreythompson.org'
+
+pre_chosen_salt = 		None 					# user-specified salt
+salt_it = 				True					# randomly salt the noise?
+email_salt = 			True 					# send salt in email?
+store_hash = 			True					# store the resulting hash?
+upload_to_server = 		True					# upload noise for download?
+delete_noise_file = 	True					# securely delete noise file when done?
+noise_len = 			10 * 44100				# duration in sec * sample rate (270 = 4.5 mins)
+seed = 					None					# seed value (or None) - doesn't work with all RNGs
 
 # dieharder_tests = []
 dieharder_tests = 		[ 1, 2, 101, 202, 203 ]
 
 # files created and used
-noise_byte_file = 		'bytes.dat'
-noise_dieharder_file = 	'dieharder.dat'
-all_hashes_file = 		'AllHashes.csv'		# file to store previous hashes
+noise_byte_file = 			'bytes.dat'					# byte-file for ENT testing
+noise_dieharder_file = 		'dieharder.dat'				# specially-formatted for Dieharder
+all_hashes_file = 			'AllHashes.csv'				# file to store previous hashes
+hardware_audio_filename = 	'AudioFiles/hardware.wav'
 
-max_value = 			4294967295			# max value for 32-bit integer
+# other variables
+max_value = 				4294967295					# max value for 32-bit integer
+truerng_port = 				'/dev/cu.usbmodem1411'		# serial port to read TrueRNG
 
 
 # - - - - - - - - - - - - - - - - - - - -
@@ -64,16 +67,18 @@ max_value = 			4294967295			# max value for 32-bit integer
 print '\n' + 'WHITE NOISE GENERATOR'
 print ('- ' * 8) + '\n'
 
-print 'generating ' + str(noise_len/44100) + ' seconds of noise...'
 
-# read from hardware RNG
+# read from audio file created by hardware RNG
 if 'hardware:' in generator:
+	print 'reading noise from hardware device...'
 	generator = generator.replace('hardware:', '')
 	print '- using hardware generator: ' + generator
+	noise = read_from_audio_file(hardware_audio_filename, noise_len)
 
 # or, create noise using algo RNG and write to file
 # by default, use dev/random since it is very secure
 else:
+	print 'generating ' + str(noise_len/44100) + ' seconds of noise...'
 	print '- using software generator: ' + generator
 	if generator == 'threefish':
 		noise = threefish(seed, noise_len)
@@ -84,9 +89,15 @@ else:
 	elif generator == 'dieharder:':
 		generator = generator[10:]
 		noise = dieharder_generator(seed, noise_len, generator)
+	elif generator == 'true_rng':
+		noise = truerng(noise_len, truerng_port)
 	else:
 		noise = dev_random(seed, noise_len)
-	noise = convert_to_byte_range(noise, max_value)
+
+
+# convert file into byte range for audio output
+noise = convert_to_byte_range(noise, max_value)
+
 
 # add generator to stats
 stats = [ [ 'generator', generator, 'pseudo RNG' ] ]
@@ -100,33 +111,36 @@ write_dieharder_file(noise, noise_dieharder_file, max_value)
 # create salt as a "password" to the data
 # or use user-specified salt if it exists
 if pre_chosen_salt == None:
-	salt = uuid.uuid4().hex
+	# salt = uuid.uuid4().hex
+	salt = bcrypt.gensalt()
 else:
 	salt = pre_chosen_salt
 
 
-# hash file as SHA512 for storage in list
+# hash file using bcrypt for storage in list
 # also create MD5 hash with salt created above for audio
 # filename (since most OSs can't take filenames)
 # longer than 128-256 characters
 print '\n' + 'hashing file...'
 if salt_it:
-	sha512 = hash_file_sha512(noise_byte_file, salt)
+	# hash = hash_file_sha512(noise_byte_file, salt)
+	hash = bcrypt.hashpw(noise_byte_file, salt)
 else:
-	sha512 = hash_file_sha512(noise_byte_file, None)
+	# hash = hash_file_sha512(noise_byte_file, None)
+	hash = bcrypt.hashpw(noise_byte_file, bcrypt.gensalt())
 md5 = hash_file_md5(noise_byte_file, salt)
 
 
 # check against previous hashes and store
 if store_hash:
 	print '- checking against previous hashes...'
-	if check_against_hashes(sha512, all_hashes_file) == True:
+	if check_against_hashes(hash, all_hashes_file) == True:
 		print '- already stored - redo generation!'
 		exit(1)
 	else:
 		print '- not stored, adding to list...'
 		with open(all_hashes_file, 'a') as out:
-			out.write(sha512 + '\n')
+			out.write(hash + '\n')
 
 
 # run tests on noise file
@@ -134,10 +148,10 @@ print '\n' + 'running ENT tests...'
 stats.extend( ent_test(noise_byte_file) )
 
 
-'''print '\n' + 'running DIEHARDER tests (may take a while)...'
+print '\n' + 'running DIEHARDER tests (may take a while)...'
 for test in dieharder_tests:
 	stats.extend( run_dieharder(noise_dieharder_file, test) )
-'''
+
 
 # write wav file!
 print '\n' + 'writing audio file...'
@@ -160,8 +174,8 @@ if upload_to_server:
 # delete noise file (we only keep the hash)
 if delete_noise_file:
 	print '\n' + 'securely deleting noise files...'
-	check_call(['srm', noise_byte_file])
-	check_call(['srm', noise_dieharder_file])
+	check_call([ 'srm', noise_byte_file ])
+	check_call([ 'srm', noise_dieharder_file ])
 
 
 # all done!

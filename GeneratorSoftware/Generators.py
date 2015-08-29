@@ -6,6 +6,7 @@ aes_ofb				crypto, created w dieharder
 threefish			crypto, created w dieharder
 dieharder:xxx		various options w dieharder (see below)
 congruential		not very secure but classic
+true_rng			USB-based true RNG
 
 
 DIEHARDER GENERATORS
@@ -41,7 +42,7 @@ R_mersenne_twister  R_knuth_taocp      	R_knuth_taocp2
 
 '''
 
-import random
+import random, struct
 from subprocess import Popen, PIPE
 
 
@@ -120,7 +121,7 @@ def congruential(seed, noise_len):
 
 
 def dev_random(seed, noise_len):
-	"""generates true random #s using /dev/random hard-drive entropy"""
+	"""Generates true random #s using /dev/random hard-drive entropy"""
 	if seed == None:
 		rng = random.SystemRandom()
 	else:
@@ -133,4 +134,14 @@ def dev_random(seed, noise_len):
 	return noise
 
 
+def truerng(noise_len, port):
+	"""Reads random values from TrueRNG USB random number generator"""
+	noise = []
+	while len(noise) < noise_len:
+		p = Popen([ 'dd', 'if=' + port, 'count=1', 'bs=1' ],  stdin=PIPE, stdout=PIPE, stderr=PIPE)
+		val, err = p.communicate()
+		val = struct.unpack('@B', val)[0]
+		val *= 16843009 - 1
+		noise.append(val)
+	return noise
 

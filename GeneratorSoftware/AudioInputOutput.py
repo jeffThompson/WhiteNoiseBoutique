@@ -1,7 +1,37 @@
 
-import wave
-from struct import pack
-from Utilities import *
+import wave								# for all things audio
+from struct import pack, unpack			# numbers from raw samples
+from Utilities import *					# formatting audio data
+from subprocess import check_call		# for secure delete
+
+
+def read_from_audio_file(input_filename, noise_len):
+	"""Reads noise values from audio file."""
+	w = wave.open(input_filename, 'r')
+	num_samples = w.getnframes()
+
+	# file too short? quit
+	if num_samples < noise_len:
+		print '- audio file is too short!'
+		print '\n QUITTING...'
+		exit()
+
+	# read samples
+	print '- reading samples from file...'
+	noise = []
+	for i in range(0, noise_len):
+		sample = w.readframes(1)
+		sample = int(struct.unpack('<h', sample)[0])
+		sample = (sample + 32768) * 65535			# convert 16-bit signed to expected range
+		noise.append(sample)
+
+	# securely delete file
+	print '- securely deleting input file...'
+	check_call([ 'srm', input_filename ])
+
+	# done!
+	return noise
+
 
 
 def write_wav(samples, output_filename):
@@ -16,7 +46,6 @@ def write_wav(samples, output_filename):
 	sample_width = 	2				# size of sample in bytes (16-bit audio = 2)
 	frame_rate = 	44100			# aka sample rate
 	num_frames = 	len(samples)	# duration of file in samples
-	buffer_size = 	2048
 
 	# create file
 	print '- creating wav file...'

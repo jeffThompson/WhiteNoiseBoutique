@@ -8,5 +8,5 @@ ftp_settings = {
 email_settings = {
 	'server': 'smtp.1and1.com',
 	'address': 'mail@whitenoiseboutique.com',
-	'password': 'U3b7e9ts'
+	'password': 'tes2ecHu'
 }
