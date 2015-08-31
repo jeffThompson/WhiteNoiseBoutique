@@ -20,18 +20,11 @@ THE WEEK
 [ ] Faraday cage
 
 
-MONDAY
-[ ] Book from office, pack it
-[ ] Juanita re work study
-[ ] WS posters to Chris to hang
-[ ] Debbie re coffee on Wed
-
-
 PERFORMERS
-[X] Reached out to:
-	- Ryoko Akama (super minimal, might be nice)
-	- Kostis Kilymis (suggested by Patrick Farmer)
-	- James Saunders (esp "At Least 100 Devices Being Turned On and Off" – could be done with just silence/noise?)
+[-] Reached out to:
+	- Ryoko Akama (super minimal)
+	- Kostis Kilymis
+	- James Saunders (esp "At Least 100 Devices Being Turned On and Off")
 	- David Toop (out of country)
 	- Benedict Drew (not available)
 	- Patrick Farmer (not available)
