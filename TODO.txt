@@ -9,45 +9,32 @@
     //       ///////         ///////     ///////   //
 
 
-SATURDAY
-[ ] Prices, video on website
-[ ] Syllabi, prep for Chris covering class
-[ ] Finish prepping records
-[ ] Get materials for Faraday cage
-[ ] Binder/report cover for PDFs?
-[ ] Check in with Laurence re loans, wifi, train
-
-
 SUNDAY
-[ ] Book from office, pack it
-[ ] Pack blanks for shipping
-[ ] Light on microscope
 [ ] Print notes for interview
-[ ] Bind printouts, pack it
-[ ] Faraday cage
-[ ] Take to FedEx
 
 
-SUNDAY/THE WEEK
+THE WEEK
+[ ] Light on microscope
 [ ] Final lathe adjustments
 [ ] A few more test cuts
+[ ] Faraday cage
 
 
 MONDAY
-[ ] Check in w Airbnb guy
+[ ] Book from office, pack it
 [ ] Juanita re work study
-[ ] WS posters
+[ ] WS posters to Chris to hang
 [ ] Debbie re coffee on Wed
 
 
 PERFORMERS
 [X] Reached out to:
-	- David Toop
-	- Benedict Drew (not available)
-	- Patrick Farmer
-[ ] Alt by order of pref:
-	- James Saunders (esp "At Least 100 Devices Being Turned On and Off" – could be done with just silence/noise?)
 	- Ryoko Akama (super minimal, might be nice)
+	- Kostis Kilymis (suggested by Patrick Farmer)
+	- James Saunders (esp "At Least 100 Devices Being Turned On and Off" – could be done with just silence/noise?)
+	- David Toop (out of country)
+	- Benedict Drew (not available)
+	- Patrick Farmer (not available)
 
 
 QUESTIONS MOSTLY ANSWERED
@@ -69,6 +56,7 @@ QUESTIONS MOSTLY ANSWERED
 
 
 TRAVEL ARRANGMENTS
+[ ] Book car
 [ ] Find/print travel details, esp train
 
 
@@ -77,24 +65,15 @@ GET LOCALLY
 
 
 PACKING
-[ ] Pack out Pelican case
-	- lathe
-	- turntable
-	- amp/filter
-	- vacuum
-[ ] Pack blanks, ship
-
-
-WEBSITE
-[ ] Add teaser video
-[ ] Proof for typos (again)
+[ ] Interior box for amp/filter inside Pelican case
+[ ] Interior box for cables, power supplies
+[ ] Pack blanks into packable box
 
 
 PROMO
 [ ] Reach out to other news outlets
 	- Prosthetic Knowl
 	- Creative Applications
-	- Followup with already-emailed folks
 [ ] Create FB events for listening party
 
 
@@ -118,19 +97,14 @@ VIDEO TEASER
 
 
 LATHE
+[ ] Test cuts
 [ ] Vacuum
-	- lower input hose into jar
-	- mesh on output hose in jar
+	- O-ring seals
 [ ] Heat lamps?
 [ ] In/out time ruler
-[ ] Prep blanks
-[ ] Test cuts
-	- depth, etc
-	- cheatsheet for settings?
 [ ] Somekind of better hold-down for blanks
 [ ] Heated stylus?
 	- http://www.steveespinola.com/lathetrolls/resources/Alan_Graves_Hot_Stylus.pdf
-[ ] New leadscrew?
 
 
 WHEN TIME ALLOWS
@@ -157,6 +131,7 @@ WHEN TIME ALLOWS
 	- https://www.tindie.com/products/bot_thoughts/pocket-turntable-strobe/
 [ ] Nice stroboscopic discs
 	- http://keystrobe.com/keystrobe/Buy.html
+[ ] New leadscrew?
 
 
 BOOKS TO ORDER OR GET ON ILL
