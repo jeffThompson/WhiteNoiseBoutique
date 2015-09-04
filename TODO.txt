@@ -9,12 +9,7 @@
     //       ///////         ///////     ///////   //
 
 
-SUNDAY
-[ ] Print notes for interview
-
-
-THE WEEK
-[ ] Light on microscope
+AFTER SHOP IS SET UP
 [ ] Final lathe adjustments
 [ ] A few more test cuts
 [ ] Faraday cage
@@ -22,9 +17,9 @@ THE WEEK
 
 PERFORMERS
 [-] Reached out to:
+	- James Saunders (can do, but not available to attend)
 	- Ryoko Akama (super minimal)
-	- Kostis Kilymis
-	- James Saunders (esp "At Least 100 Devices Being Turned On and Off")
+	- Kostis Kilymis (not available)
 	- David Toop (out of country)
 	- Benedict Drew (not available)
 	- Patrick Farmer (not available)
@@ -39,34 +34,19 @@ QUESTIONS MOSTLY ANSWERED
 	- broom and mop?
 	- glass cleaner
 [-] Getting change for cash, £5 and £10 notes for change + £1 coins
-[-] Wifi in store? Need for credic card processing, uploading, etc
-	- Laurence look into; is there a portable travel option?
-	- 800MB from AT&T = $120
-	- http://www.three.co.uk/Discover/Devices/Huawei/E5573_4G_Mobile_Wi-Fi?memory=0&colour=White
-	- http://www.three.co.uk/Discover/Devices/Huawei/E5330_Mobile_Wi-Fi?memory=0&colour=White
 [-] Donate furn when done?
 	- several options, might use for next project
 
 
 TRAVEL ARRANGMENTS
-[ ] Book car
 [ ] Find/print travel details, esp train
 
 
 GET LOCALLY
-[ ] Anchors for shelves
-
-
-PACKING
-[ ] Interior box for amp/filter inside Pelican case
-[ ] Interior box for cables, power supplies
-[ ] Pack blanks into packable box
+[ ] Anchors for shelves, depending on walls
 
 
 PROMO
-[ ] Reach out to other news outlets
-	- Prosthetic Knowl
-	- Creative Applications
 [ ] Create FB events for listening party
 
 
@@ -75,14 +55,6 @@ BUILD/MAKE
 	- decide frame materials
 	- approx 12 x 12 x 36"
 	- easily collapsible - like softbox or tent?
-
-
-DESIGN
-[ ] Store rendering
-	- add equipment, chairs in front
-[ ] Vinyl for wall as well? instructions/menu?
-	- flowchart?
-	- back wall?
 
 
 VIDEO TEASER
@@ -100,7 +72,13 @@ LATHE
 	- http://www.steveespinola.com/lathetrolls/resources/Alan_Graves_Hot_Stylus.pdf
 
 
-WHEN TIME ALLOWS
+WHEN BACK/TIME ALLOWS
+[ ] read
+	- https://learn.adafruit.com/raspberry-pi-thermal-printer-one-time-pads/the-bad-news
+	- bjblaster.homedns.org/blog/?x=entry:entry140716-075241
+[ ] Reach out to other news outlets when back
+	- Prosthetic Knowl
+	- Creative Applications
 [ ] Write up a short essay on randomness
 [ ] Better annotate code, push to Github
 [ ] Speed control for lathe
