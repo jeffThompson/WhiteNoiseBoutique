@@ -36,7 +36,7 @@ from subprocess import check_call	# for secure delete
 
 
 # user-specified options
-generator = 			'congruential'
+generator = 			'dev_random'
 email_address = 		'mail@jeffreythompson.org'
 
 pre_chosen_salt = 		None 					# user-specified salt
@@ -45,7 +45,7 @@ email_salt = 			True 					# send salt in email?
 store_hash = 			True					# store the resulting hash?
 upload_to_server = 		True					# upload noise for download?
 delete_noise_file = 	True					# securely delete noise file when done?
-noise_len = 			10 * 44100				# duration in sec * sample rate (270 = 4.5 mins)
+noise_len = 			60 * 44100				# duration in sec * sample rate (270 = 4.5 mins)
 seed = 					None					# seed value (or None) - doesn't work with all RNGs
 
 # dieharder_tests = []
